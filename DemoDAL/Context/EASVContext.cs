@@ -1,7 +1,7 @@
-﻿using DemoDAL.Entities;
+﻿using DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace DemoDAL.Context
+namespace DAL.Context
 {
     class EASVContext : DbContext
     {
@@ -13,6 +13,5 @@ namespace DemoDAL.Context
         }
 
         //public DbSet<Entity> Entites { get; set; }
-        public DbSet<Joke> Jokes { get; set; }
     }
 }

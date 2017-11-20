@@ -1,4 +1,5 @@
-﻿using DemoBLL;
+﻿using BLL;
+using DemoBLL;
 using DemoBLL.Facade;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace CustomerRestAPI
+namespace RestAPI
 {
     public class Startup
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
-using DemoDAL;
-using DemoDAL.Facade;
-using DemoBLL.Services;
+using BLL;
+using DAL;
+using DAL.Facade;
 
 namespace DemoBLL.Facade
 {
@@ -21,8 +21,8 @@ namespace DemoBLL.Facade
         /*public IJokeService JokeService => 
             new JokeService(facade);**/
 
-        public IJokeService JokeService {
-            get{ return new JokeService(facade); }
-        }
+        //public IJokeService JokeService {
+        //    get{ return new JokeService(facade); }
+        //}
     }
 }

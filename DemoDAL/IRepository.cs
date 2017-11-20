@@ -1,9 +1,9 @@
-﻿using DemoDAL.Entities;
+﻿using DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoDAL
+namespace DAL
 {
     public interface IRepository<IEntity>
     {

@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DemoDAL\DemoDAL.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Facade\" />
     <Folder Include="BusinessObjects\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DemoDAL\DAL.csproj" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DemoDAL
+namespace DAL
 {
     public class DbOptions
     {

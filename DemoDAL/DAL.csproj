@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Repositories\" />
     <Folder Include="UOW\" />
     <Folder Include="Entities\" />
     <Folder Include="Facade\" />

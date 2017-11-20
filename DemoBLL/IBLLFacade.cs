@@ -1,8 +1,8 @@
 ﻿using System;
-namespace DemoBLL
+namespace BLL
 {
     public interface IBLLFacade
     {
-        IJokeService JokeService { get; }
+        //IJokeService JokeService { get; }
     }
 }

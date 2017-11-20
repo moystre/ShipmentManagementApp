@@ -1,13 +1,12 @@
 ﻿using System;
-using DemoDAL.Context;
-using DemoDAL.Repositories;
+using DAL.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace DemoDAL.UOW
+namespace DAL.UOW
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public IJokeRepository JokeRepository { get;  internal set; }
+        //public IJokeRepository JokeRepository { get;  internal set; }
         private EASVContext _context;
         private static DbContextOptions<EASVContext> optionsStatic;
            
@@ -26,7 +25,7 @@ namespace DemoDAL.UOW
                 _context = new EASVContext(options);
             }
 
-            JokeRepository = new JokeRepository(_context);
+            //JokeRepository = new JokeRepository(_context);
         }
 
         public int Complete()
