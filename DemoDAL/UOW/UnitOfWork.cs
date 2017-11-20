@@ -1,31 +1,35 @@
 ﻿using System;
 using DAL.Context;
 using Microsoft.EntityFrameworkCore;
+using DAL.Entities;
+using DAL.Repositories;
 
 namespace DAL.UOW
 {
     public class UnitOfWork : IUnitOfWork
     {
         //public IJokeRepository JokeRepository { get;  internal set; }
-        private EASVContext _context;
-        private static DbContextOptions<EASVContext> optionsStatic;
+        public IRepository<User> UserRepository { get; internal set; }
+        private Context.ShipmentContext _context;
+        private static DbContextOptions<Context.ShipmentContext> optionsStatic;
            
         public UnitOfWork(DbOptions opt)
         {
              if(opt.Environment == "Development" && String.IsNullOrEmpty(opt.ConnectionString)){
-                optionsStatic = new DbContextOptionsBuilder<EASVContext>()
+                optionsStatic = new DbContextOptionsBuilder<ShipmentContext>()
                    .UseInMemoryDatabase("TheDB")
                    .Options;
-                _context = new EASVContext(optionsStatic);
+                _context = new Context.ShipmentContext(optionsStatic);
             }
             else{
-                var options = new DbContextOptionsBuilder<EASVContext>()
+                var options = new DbContextOptionsBuilder<ShipmentContext>()
                 .UseSqlServer(opt.ConnectionString)
                     .Options;
-                _context = new EASVContext(options);
+                _context = new Context.ShipmentContext((DbContextOptions<Context.ShipmentContext>)options);
             }
 
             //JokeRepository = new JokeRepository(_context);
+            UserRepository = new UserRepository(_context);
         }
 
         public int Complete()
