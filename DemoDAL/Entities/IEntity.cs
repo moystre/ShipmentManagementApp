@@ -1,8 +1,8 @@
 ﻿using System;
 namespace DAL.Entities
 {
-    interface IEntity
+    public interface IEntity
     {
-        int Id { get; set; }
+        long Id { get; set; }
     }
 }

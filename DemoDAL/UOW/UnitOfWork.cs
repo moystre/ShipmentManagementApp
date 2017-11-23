@@ -8,7 +8,6 @@ namespace DAL.UOW
 {
     public class UnitOfWork : IUnitOfWork
     {
-        //public IJokeRepository JokeRepository { get;  internal set; }
         public IRepository<User> UserRepository { get; internal set; }
         private Context.ShipmentContext _context;
         private static DbContextOptions<Context.ShipmentContext> optionsStatic;
@@ -28,7 +27,6 @@ namespace DAL.UOW
                 _context = new Context.ShipmentContext((DbContextOptions<Context.ShipmentContext>)options);
             }
 
-            //JokeRepository = new JokeRepository(_context);
             UserRepository = new UserRepository(_context);
         }
 

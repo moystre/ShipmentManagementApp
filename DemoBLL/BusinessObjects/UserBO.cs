@@ -1,10 +1,11 @@
-﻿using System;
+﻿using DemoBLL.BusinessObjects;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAL.Entities
+namespace BLL.BusinessObjects
 {
-    public class User :IEntity
+    public class UserBO : IBusinessObject
     {
         public long Id { get; set; }
         public string Username { get; set; }

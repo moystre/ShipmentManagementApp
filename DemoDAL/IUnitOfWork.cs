@@ -1,9 +1,10 @@
-﻿using System;
+﻿using DAL.Entities;
+using System;
 namespace DAL
 {
     public interface IUnitOfWork : IDisposable
     {
-        //IJokeRepository JokeRepository { get; }
+        IRepository<User> UserRepository { get; }
 
         int Complete();
     }

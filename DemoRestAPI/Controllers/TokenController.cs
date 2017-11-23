@@ -18,7 +18,6 @@ namespace RestAPI.Controllers
     
     public class TokenController : Controller
     {
-
         private readonly IRepository<User> repository;
 
         public TokenController(IRepository<User> repos)
