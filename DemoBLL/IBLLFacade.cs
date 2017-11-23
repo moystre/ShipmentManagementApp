@@ -1,8 +1,10 @@
-﻿using System;
+﻿using BLL.BusinessObjects;
+using DemoBLL;
+using System;
 namespace BLL
 {
     public interface IBLLFacade
     {
-        //IJokeService JokeService { get; }
+        //IService<UserBO> UserService { get; }
     }
 }

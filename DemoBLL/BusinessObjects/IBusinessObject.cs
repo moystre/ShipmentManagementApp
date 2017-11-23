@@ -3,6 +3,6 @@ namespace DemoBLL.BusinessObjects
 {
     public interface IBusinessObject
     {
-        long Id { get; set; }
+        int Id { get; set; }
     }
 }

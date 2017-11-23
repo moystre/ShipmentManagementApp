@@ -3,12 +3,14 @@ using Microsoft.Extensions.Configuration;
 using BLL;
 using DAL;
 using DAL.Facade;
+using BLL.BusinessObjects;
+using BLL.Services;
 
 namespace DemoBLL.Facade
 {
     public class BLLFacade : IBLLFacade
     {
-        private IDALFacade facade;
+        private DALFacade facade;
 
         public BLLFacade(IConfiguration conf){
             facade = new DALFacade(new DbOptions()
@@ -16,6 +18,11 @@ namespace DemoBLL.Facade
                 ConnectionString = conf.GetConnectionString("DefaultConnection"),
                 Environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")
             });
+        }
+
+        public IService<UserBO> UserService
+        {
+            get { return new UserService(facade); }
         }
 
         /*public IJokeService JokeService => 

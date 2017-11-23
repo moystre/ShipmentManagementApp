@@ -3,6 +3,6 @@ namespace DAL.Entities
 {
     public interface IEntity
     {
-        long Id { get; set; }
+        int Id { get; set; }
     }
 }

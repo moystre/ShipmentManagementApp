@@ -2,6 +2,7 @@
 using DAL.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DAL.Repositories
@@ -15,29 +16,35 @@ namespace DAL.Repositories
             _context = context;
         }
 
-        public User Create(User address)
+        public User Create(User user)
         {
-            throw new NotImplementedException();
+            _context.Users.Add(user);
+            return user;
         }
 
         public User Delete(int Id)
         {
-            throw new NotImplementedException();
+            var customerToDelete = Get(Id);
+            _context.Users.Remove(customerToDelete);
+            return customerToDelete;
         }
 
         public User Get(int Id)
         {
-            throw new NotImplementedException();
+            return _context.Users.FirstOrDefault(c => c.Id == Id);
         }
 
         public IEnumerable<User> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Users;
         }
 
         public IEnumerable<User> GetAllById(List<int> ids)
         {
-            throw new NotImplementedException();
+            if (ids == null) { return null; }
+
+            return _context.Users.Where(c => ids.Contains(c.Id));
+
         }
     }
 }
