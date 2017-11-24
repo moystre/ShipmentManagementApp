@@ -26,7 +26,7 @@ namespace RestAPI.Controllers
         }
 
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult Login([FromBody]LoginInputModel model)
         {
             var user = repository.GetAll().FirstOrDefault(u => u.Username == model.Username);
