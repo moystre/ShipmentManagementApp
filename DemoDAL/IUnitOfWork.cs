@@ -5,6 +5,7 @@ namespace DAL
     public interface IUnitOfWork : IDisposable
     {
         IRepository<User> UserRepository { get; }
+        IRepository<Shipment> ShipmentRepository { get; }
 
         int Complete();
     }

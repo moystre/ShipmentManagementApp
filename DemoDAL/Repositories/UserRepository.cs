@@ -24,9 +24,9 @@ namespace DAL.Repositories
 
         public User Delete(int Id)
         {
-            var customerToDelete = Get(Id);
-            _context.Users.Remove(customerToDelete);
-            return customerToDelete;
+            var userToDelete = Get(Id);
+            _context.Users.Remove(userToDelete);
+            return userToDelete;
         }
 
         public User Get(int Id)

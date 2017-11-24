@@ -24,12 +24,10 @@ namespace DemoBLL.Facade
         {
             get { return new UserService(facade); }
         }
-
-        /*public IJokeService JokeService => 
-            new JokeService(facade);**/
-
-        //public IJokeService JokeService {
-        //    get{ return new JokeService(facade); }
-        //}
+        
+        public IService<ShipmentBO> ShipmentService
+        {
+            get { return new ShipmentService(facade); }
+        }
     }
 }

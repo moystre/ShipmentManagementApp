@@ -9,6 +9,7 @@ namespace DAL.UOW
     public class UnitOfWork : IUnitOfWork
     {
         public IRepository<User> UserRepository { get; internal set; }
+        public IRepository<Shipment> ShipmentRepository { get; internal set; }
         private Context.ShipmentContext _context;
         private static DbContextOptions<Context.ShipmentContext> optionsStatic;
            
@@ -28,6 +29,7 @@ namespace DAL.UOW
             }
 
             UserRepository = new UserRepository(_context);
+            ShipmentRepository = new ShipmentRepository(_context);
         }
 
         public int Complete()

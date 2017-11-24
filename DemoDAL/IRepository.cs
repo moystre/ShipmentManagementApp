@@ -8,7 +8,7 @@ namespace DAL
     public interface IRepository<IEntity>
     {
         //C
-        IEntity Create(IEntity address);
+        IEntity Create(IEntity entity);
         //R
         IEnumerable<IEntity> GetAll();
         IEnumerable<IEntity> GetAllById(List<int> ids);
