@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using DAL.Context;
 using DAL.Entities;
 using DAL.Repositories;
 using DemoBLL;
@@ -7,6 +8,7 @@ using DemoBLL.Facade;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -54,6 +56,10 @@ namespace RestAPI
                     ClockSkew = TimeSpan.FromMinutes(5) //5 minute tolerance for the expiration date
                 };
             });
+
+            var connectionString = "Server=tcp:shipmentmanagement-server.database.windows.net,1433;Initial Catalog=ShipmentManagementDB;Persist Security Info=False;User ID=shipmentmanagementlogin;Password=MakeThisWork!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            DbInitializer.Initialize(new ShipmentContext());
+            services.AddDbContext<ShipmentContext>(options => options.UseSqlServer(connectionString));
 
             services.AddMvc();
 

@@ -1,7 +1,9 @@
 ﻿using DAL.Context;
 using DAL.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace DAL
@@ -12,14 +14,25 @@ namespace DAL
         // This method will create and seed the database.
         public static void Initialize(ShipmentContext context)
         {
+            if (context==null)
+            {
+                Debug.WriteLine("context is null");
+                //throw new NullReferenceException();
+                context = new ShipmentContext(new DbContextOptions<ShipmentContext>
+                {
+                    
+                });
+            }
             // Delete the database, if it already exists. I do this because an
             // existing database may not be compatible with the entity model,
             // if the entity model was changed since the database was created.
             context.Database.EnsureDeleted();
+            Debug.WriteLine("DB EnsureDeleted");
 
             // Create the database, if it does not already exists. This operation
             // is necessary, if you use an SQL Server database.
             context.Database.EnsureCreated();
+            Debug.WriteLine("DB EnsureCreated");
 
             // Look for any TodoItems
             //if (context.TodoItems.Any())

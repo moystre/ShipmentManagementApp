@@ -10,17 +10,7 @@ namespace RestAPI
     {
         public static void Main(string[] args)
         {
-            var host = BuildWebHost(args);
-
-            // Initialize the database:
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                var dbContext = services.GetService<ShipmentContext>();
-                DbInitializer.Initialize(dbContext);
-            }
-
-            host.Run();
+            BuildWebHost(args).Run();
         }
 
         public static IWebHost BuildWebHost(string[] args) =>

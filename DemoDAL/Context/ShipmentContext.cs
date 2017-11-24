@@ -7,6 +7,11 @@ namespace DAL.Context
     {
         public ShipmentContext(DbContextOptions<ShipmentContext> options): base(options)  { }
 
+        public ShipmentContext()
+        {
+            new ShipmentContext(new DbContextOptions<ShipmentContext>());
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
