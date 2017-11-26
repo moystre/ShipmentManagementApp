@@ -12,6 +12,11 @@ namespace DemoBLL.Facade
     {
         private DALFacade facade;
 
+        public BLLFacade()
+        {
+            facade = new DALFacade();
+        }
+
         public BLLFacade(IConfiguration conf){
             facade = new DALFacade(new DbOptions()
             {

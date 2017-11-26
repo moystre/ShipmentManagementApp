@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using DemoBLL.Facade;
 using Microsoft.Extensions.Configuration;
 using BLL.BusinessObjects;
+using Microsoft.AspNetCore.Cors;
 
 namespace RestAPI.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Produces("application/json")]
     [Route("api/Shipment")]
     public class ShipmentController : Controller

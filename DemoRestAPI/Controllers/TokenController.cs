@@ -10,9 +10,11 @@ using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using RestAPI.Helpers;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Cors;
 
 namespace RestAPI.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Produces("application/json")]
     [Route("api/Token")]
     

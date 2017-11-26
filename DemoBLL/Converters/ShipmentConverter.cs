@@ -15,6 +15,7 @@ namespace BLL.Converters
             return new Shipment()
             {
                 Id = businessObject.Id,
+                ShipmentName = businessObject.ShipmentName,
                 Bill = businessObject.Bill,
                 CargoInfo = businessObject.CargoInfo,
                 ContainerQuantity = businessObject.ContainerQuantity,
@@ -33,6 +34,7 @@ namespace BLL.Converters
             return new ShipmentBO()
             {
                 Id = entity.Id,
+                ShipmentName = entity.ShipmentName,
                 Bill = entity.Bill,
                 CargoInfo = entity.CargoInfo,
                 ContainerQuantity = entity.ContainerQuantity,

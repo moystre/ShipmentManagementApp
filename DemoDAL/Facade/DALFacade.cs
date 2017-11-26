@@ -4,6 +4,8 @@ namespace DAL.Facade
 {
     public class DALFacade : IDALFacade
     {
+        public DALFacade() { }
+
         DbOptions opt;
         public DALFacade(DbOptions opt){
             this.opt = opt;
