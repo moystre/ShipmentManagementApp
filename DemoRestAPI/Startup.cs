@@ -25,15 +25,14 @@ namespace RestAPI
             Configuration = configuration;
         }
 
-		public Startup(IHostingEnvironment env)
-		{
-			var builder = new ConfigurationBuilder()
-				.SetBasePath(env.ContentRootPath)
-				.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-				.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-				.AddEnvironmentVariables();
-			Configuration = builder.Build();
-
+        public Startup(IHostingEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables();
+            Configuration = builder.Build();
             JwtSecurityKey.SetSecret("a secret that needs to be at least 16 characters long");
         }
 
@@ -57,17 +56,20 @@ namespace RestAPI
                 };
             });
 
-            var connectionString = "Server=tcp:shipmentmanagement-server.database.windows.net,1433;Initial Catalog=ShipmentManagementDB;Persist Security Info=False;User ID=shipmentmanagementlogin;Password=MakeThisWork!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+            .AllowAnyHeader();
+            }));
+
+            var connectionString = "@Server=tcp:shipmentmanagement-server.database.windows.net,1433;Initial Catalog=ShipmentManagementDB;Persist Security Info=False;User ID=shipmentmanagementlogin;Password=MakeThisWork!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             DbInitializer.Initialize(new ShipmentContext());
             services.AddDbContext<ShipmentContext>(options => options.UseSqlServer(connectionString));
 
             services.AddMvc();
 
-			services.AddCors(o => o.AddPolicy("MyPolicy", builder => {
-                builder.AllowAnyOrigin()
-                .AllowAnyMethod()
-			.AllowAnyHeader();
-			}));
+
 
             services.AddSingleton(Configuration);
             services.AddScoped<IBLLFacade, BLLFacade>();
@@ -78,14 +80,14 @@ namespace RestAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            
+
             if (env.IsDevelopment())
             {
                 app.UseCors("MyPolicy");
                 loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-				loggerFactory.AddDebug();
+                loggerFactory.AddDebug();
 
-				app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();
 
                 var facade = new BLLFacade();
 
@@ -105,7 +107,7 @@ namespace RestAPI
                         public double Cost { get; set; }
                          * */
 
-                         
+
                         Id = 1,
                         ShipmentName = "#7865",
                         Customer = "CustomerOne",
@@ -120,7 +122,7 @@ namespace RestAPI
                     });
             }
 
-           
+
 
             app.UseAuthentication();
             app.UseMvc();
