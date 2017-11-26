@@ -86,46 +86,12 @@ namespace RestAPI
                 app.UseCors("MyPolicy");
                 loggerFactory.AddConsole(Configuration.GetSection("Logging"));
                 loggerFactory.AddDebug();
-
                 app.UseDeveloperExceptionPage();
-
-                var facade = new BLLFacade();
-
-                var product1 = facade.ShipmentService.Create(
-                    new BLL.BusinessObjects.ShipmentBO()
-                    {
-                        /*
-                         *         public int Id { get; set; }
-                         public string Customer { get; set; }
-                         public string CargoInfo { get; set; }
-                        public string CountryDepature { get; set; }
-                        public string CountryDelivery { get; set; }
-                        public int ContainerQuantity { get; set; }
-                        public string HandlingDetail { get; set; }
-                        public DateTime FinishedDate { get; set; }
-                        public double Bill { get; set; }
-                        public double Cost { get; set; }
-                         * */
-
-
-                        Id = 1,
-                        ShipmentName = "#7865",
-                        Customer = "CustomerOne",
-                        CargoInfo = "CargoInformation",
-                        CountryDepature = "Greenland",
-                        CountryDelivery = "Germany",
-                        ContainerQuantity = 342,
-                        HandlingDetail = "Details",
-                        FinishedDate = "Not finished",
-                        Bill = 45675,
-                        Cost = 999
-                    });
             }
-
-
-
-            app.UseAuthentication();
             app.UseMvc();
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseAuthentication();
+
         }
     }
 }
