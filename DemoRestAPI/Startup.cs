@@ -64,10 +64,9 @@ namespace RestAPI
             services.AddMvc();
 
 			services.AddCors(o => o.AddPolicy("MyPolicy", builder => {
-                //builder.WithOrigins("http://localhost:4200")
                 builder.AllowAnyOrigin()
                 .AllowAnyMethod()
-					   .AllowAnyHeader();
+			.AllowAnyHeader();
 			}));
 
             services.AddSingleton(Configuration);
@@ -121,7 +120,7 @@ namespace RestAPI
                     });
             }
 
-            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+           
 
             app.UseAuthentication();
             app.UseMvc();
