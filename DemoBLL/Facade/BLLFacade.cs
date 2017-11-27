@@ -20,7 +20,7 @@ namespace DemoBLL.Facade
         public BLLFacade(IConfiguration conf){
             facade = new DALFacade(new DbOptions()
             {
-                ConnectionString = conf.GetConnectionString("DefaultConnection"),
+                ConnectionString = conf.GetConnectionString("ShipmentConnection"),
                 Environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")
             });
         }
