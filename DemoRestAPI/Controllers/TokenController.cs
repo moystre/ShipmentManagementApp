@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using DAL;
 using DAL.Entities;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using RestAPI.Helpers;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Cors;
+using BLL;
+using BLL.BusinessObjects;
 
 namespace RestAPI.Controllers
 {
@@ -20,18 +19,18 @@ namespace RestAPI.Controllers
     
     public class TokenController : Controller
     {
-        private readonly IRepository<User> repository;
+        private readonly IBLLFacade facade;
 
-        public TokenController(IRepository<User> repos)
+        public TokenController(IBLLFacade facade)
         {
-            repository = repos;
+            this.facade = facade;
         }
 
 
         [HttpPost]
         public IActionResult Login([FromBody]LoginInputModel model)
         {
-            var user = repository.GetAll().FirstOrDefault(u => u.Username == model.Username);
+            var user = facade.UserService.GetAll().FirstOrDefault(u => u.Username == model.Username);
 
             // check if username exists
             if (user == null)
@@ -69,7 +68,7 @@ namespace RestAPI.Controllers
         }
 
         // This method generates and returns a JWT token for a user.
-        private string GenerateToken(User user)
+        private string GenerateToken(UserBO user)
         {
             var claims = new List<Claim>
             {
