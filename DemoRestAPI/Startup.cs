@@ -43,20 +43,20 @@ namespace RestAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-            //{
-            //    options.TokenValidationParameters = new TokenValidationParameters
-            //    {
-            //        ValidateAudience = false,
-            //        //ValidAudience = "TodoApiClient",
-            //        ValidateIssuer = false,
-            //        //ValidIssuer = "TodoApi",
-            //        ValidateIssuerSigningKey = true,
-            //        IssuerSigningKey = JwtSecurityKey.Key,
-            //        ValidateLifetime = true, //validate the expiration and not before values in the token
-            //        ClockSkew = TimeSpan.FromMinutes(5) //5 minute tolerance for the expiration date
-            //    };
-            //});
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateAudience = false,
+                    //ValidAudience = "TodoApiClient",
+                    ValidateIssuer = false,
+                    //ValidIssuer = "TodoApi",
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = JwtSecurityKey.Key,
+                    ValidateLifetime = true, //validate the expiration and not before values in the token
+                    ClockSkew = TimeSpan.FromMinutes(5) //5 minute tolerance for the expiration date
+                };
+            });
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
