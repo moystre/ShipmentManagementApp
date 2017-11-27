@@ -8,6 +8,7 @@ using DemoBLL.Facade;
 using Microsoft.Extensions.Configuration;
 using BLL.BusinessObjects;
 using Microsoft.AspNetCore.Cors;
+using BLL;
 
 namespace RestAPI.Controllers
 {
@@ -16,8 +17,10 @@ namespace RestAPI.Controllers
     [Route("api/Shipment")]
     public class ShipmentController : Controller
     {
-        BLLFacade bllFacade = new BLLFacade(conf);
-        private static IConfiguration conf;
+        IBLLFacade bllFacade;
+        public ShipmentController(IBLLFacade facade) {
+            this.bllFacade = facade;
+        }
 
         // GET: api/Shipment
         [HttpGet]

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using DemoBLL.Facade;
 using BLL.BusinessObjects;
 using Microsoft.AspNetCore.Authorization;
+using BLL;
 
 namespace RestAPI.Controllers
 {
@@ -16,8 +17,11 @@ namespace RestAPI.Controllers
     public class UserController : Controller
     {
 
-        BLLFacade bllFacade = new BLLFacade(conf);
-        private static IConfiguration conf;
+        IBLLFacade bllFacade;
+        public UserController(IBLLFacade facade)
+        {
+            this.bllFacade = facade;
+        }
 
         // GET: api/User
         [Authorize]

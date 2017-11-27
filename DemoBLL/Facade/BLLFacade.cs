@@ -11,11 +11,7 @@ namespace DemoBLL.Facade
     public class BLLFacade : IBLLFacade
     {
         private DALFacade facade;
-
-        public BLLFacade()
-        {
-            facade = new DALFacade();
-        }
+        
 
         public BLLFacade(IConfiguration conf){
             Console.WriteLine("shipmentConnection: " + conf.GetConnectionString("ShipmentConnection"));

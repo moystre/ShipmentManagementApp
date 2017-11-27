@@ -73,7 +73,7 @@ namespace RestAPI
             
             services.AddSingleton(Configuration);
             services.AddScoped<IBLLFacade, BLLFacade>();
-            //services.AddScoped<IRepository<User>, UserRepository>();
+            services.AddScoped<IRepository<User>, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -86,23 +86,23 @@ namespace RestAPI
                 loggerFactory.AddConsole(Configuration.GetSection("Logging"));
                 loggerFactory.AddDebug();
                 app.UseDeveloperExceptionPage();
-                /*
-                var facade = new BLLFacade();
-                var product1 = facade.ShipmentService.Create(
-                new BLL.BusinessObjects.ShipmentBO()
-                {
-                   ShipmentName = "#7865",
-                   Customer = "CustomerOne",
-                   CargoInfo = "CargoInformation",
-                   CountryDepature = "Greenland",
-                   CountryDelivery = "Germany",
-                   ContainerQuantity = 342,
-                   HandlingDetail = "Details",
-                   FinishedDate = "Not finished",
-                   Bill = 45675,
-                   Cost = 999
-                 });
-                 */
+                
+                //var facade = new BLLFacade();
+                //var product1 = facade.ShipmentService.Create(
+                //new BLL.BusinessObjects.ShipmentBO()
+                //{
+                //   ShipmentName = "#7865",
+                //   Customer = "CustomerOne",
+                //   CargoInfo = "CargoInformation",
+                //   CountryDepature = "Greenland",
+                //   CountryDelivery = "Germany",
+                //   ContainerQuantity = 342,
+                //   HandlingDetail = "Details",
+                //   FinishedDate = "Not finished",
+                //   Bill = 45675,
+                //   Cost = 999
+                // });
+                 
             }
             app.UseMvc();
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
