@@ -14,7 +14,7 @@ namespace RestAPI.Controllers
 {
     [EnableCors("MyPolicy")]
     [Produces("application/json")]
-    [Route("api/Shipment")]
+    [Route("api/Shipments")]
     public class ShipmentController : Controller
     {
         IBLLFacade bllFacade;

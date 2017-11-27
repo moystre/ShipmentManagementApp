@@ -23,7 +23,7 @@ namespace RestAPI
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            Console.WriteLine("wrong config");
+            //Console.WriteLine("wrong config");
         }
 
         public Startup(IHostingEnvironment env)
@@ -35,7 +35,7 @@ namespace RestAPI
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
             JwtSecurityKey.SetSecret("a secret that needs to be at least 16 characters long");
-            Console.WriteLine("right config");
+            //Console.WriteLine("right config");
         }
 
         public IConfiguration Configuration { get; }
@@ -85,23 +85,65 @@ namespace RestAPI
                 loggerFactory.AddConsole(Configuration.GetSection("Logging"));
                 loggerFactory.AddDebug();
                 app.UseDeveloperExceptionPage();
-                
-                //var facade = new BLLFacade();
-                //var product1 = facade.ShipmentService.Create(
-                //new BLL.BusinessObjects.ShipmentBO()
-                //{
-                //   ShipmentName = "#7865",
-                //   Customer = "CustomerOne",
-                //   CargoInfo = "CargoInformation",
-                //   CountryDepature = "Greenland",
-                //   CountryDelivery = "Germany",
-                //   ContainerQuantity = 342,
-                //   HandlingDetail = "Details",
-                //   FinishedDate = "Not finished",
-                //   Bill = 45675,
-                //   Cost = 999
-                // });
-                 
+
+                var facade = new BLLFacade(Configuration);
+                var product1 = facade.ShipmentService.Create(
+                new BLL.BusinessObjects.ShipmentBO()
+                {
+                    ShipmentName = "#7865",
+                    Customer = "CustomerOne",
+                    CargoInfo = "CargoInformation",
+                    CountryDepature = "Greenland",
+                    CountryDelivery = "Germany",
+                    ContainerQuantity = 342,
+                    HandlingDetail = "Details",
+                    FinishedDate = "Not finished",
+                    Bill = 45675,
+                    Cost = 999
+                });
+                var product2 = facade.ShipmentService.Create(
+                new BLL.BusinessObjects.ShipmentBO()
+                {
+                    ShipmentName = "#6523",
+                    Customer = "CustomerTwo",
+                    CargoInfo = "CargoInformation",
+                    CountryDepature = "Greenland",
+                    CountryDelivery = "Germany",
+                    ContainerQuantity = 543,
+                    HandlingDetail = "Details",
+                    FinishedDate = "Not finished",
+                    Bill = 2375,
+                    Cost = 995
+                });
+                var product3 = facade.ShipmentService.Create(
+                new BLL.BusinessObjects.ShipmentBO()
+                {
+                    ShipmentName = "#2865",
+                    Customer = "CustomerThree",
+                    CargoInfo = "CargoInformation",
+                    CountryDepature = "Greenland",
+                    CountryDelivery = "Germany",
+                    ContainerQuantity = 3242,
+                    HandlingDetail = "Details",
+                    FinishedDate = "Not finished",
+                    Bill = 42315,
+                    Cost = 992
+                });
+                var product4 = facade.ShipmentService.Create(
+                new BLL.BusinessObjects.ShipmentBO()
+                {
+                    ShipmentName = "#7800",
+                    Customer = "CustomerFour",
+                    CargoInfo = "CargoInformation",
+                    CountryDepature = "Greenland",
+                    CountryDelivery = "Germany",
+                    ContainerQuantity = 42,
+                    HandlingDetail = "Details",
+                    FinishedDate = "Not finished",
+                    Bill = 55675,
+                    Cost = 933
+                });
+
             }
             app.UseMvc();
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
