@@ -10,8 +10,8 @@ namespace DAL.UOW
     {
         public IRepository<User> UserRepository { get; internal set; }
         public IRepository<Shipment> ShipmentRepository { get; internal set; }
-        private Context.ShipmentContext _context;
-        private static DbContextOptions<Context.ShipmentContext> optionsStatic;
+        private ShipmentContext _context;
+        private static DbContextOptions<ShipmentContext> optionsStatic;
            
         public UnitOfWork(DbOptions opt)
         {
@@ -19,13 +19,13 @@ namespace DAL.UOW
                 optionsStatic = new DbContextOptionsBuilder<ShipmentContext>()
                    .UseInMemoryDatabase("TheDB")
                    .Options;
-                _context = new Context.ShipmentContext(optionsStatic);
+                _context = new ShipmentContext(optionsStatic);
             }
             else{
                 var options = new DbContextOptionsBuilder<ShipmentContext>()
                 .UseSqlServer(opt.ConnectionString)
                     .Options;
-                _context = new Context.ShipmentContext((DbContextOptions<Context.ShipmentContext>)options);
+                _context = new ShipmentContext(options);
             }
 
             UserRepository = new UserRepository(_context);
