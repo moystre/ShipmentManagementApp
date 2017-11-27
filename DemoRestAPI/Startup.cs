@@ -23,6 +23,7 @@ namespace RestAPI
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            Console.WriteLine("wrong config");
         }
 
         public Startup(IHostingEnvironment env)
@@ -34,6 +35,7 @@ namespace RestAPI
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
             JwtSecurityKey.SetSecret("a secret that needs to be at least 16 characters long");
+            Console.WriteLine("right config");
         }
 
         public IConfiguration Configuration { get; }
