@@ -72,8 +72,8 @@ namespace BLL.Services
                 shipmentFromDb.ContainerQuantity = shipmentUpdated.ContainerQuantity;
                 shipmentFromDb.Cost = shipmentUpdated.Cost;
                 shipmentFromDb.CountryDelivery = shipmentUpdated.CountryDelivery;
-                shipmentFromDb.CountryDepature = shipmentUpdated.CountryDepature;
-                shipmentFromDb.Customer = shipmentUpdated.Customer;
+                shipmentFromDb.CountryDeparture = shipmentUpdated.CountryDeparture;
+                shipmentFromDb.CustomerName = shipmentUpdated.CustomerName;
                 shipmentFromDb.FinishedDate = shipmentUpdated.FinishedDate;
                 shipmentFromDb.HandlingDetail = shipmentUpdated.HandlingDetail;
 

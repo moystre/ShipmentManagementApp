@@ -21,8 +21,8 @@ namespace BLL.Converters
                 ContainerQuantity = businessObject.ContainerQuantity,
                 Cost = businessObject.Cost,
                 CountryDelivery = businessObject.CountryDelivery,
-                CountryDepature = businessObject.CountryDepature,
-                Customer = businessObject.Customer,
+                CountryDeparture = businessObject.CountryDeparture,
+                CustomerName = businessObject.CustomerName,
                 FinishedDate = businessObject.FinishedDate,
                 HandlingDetail = businessObject.HandlingDetail
             };
@@ -40,8 +40,8 @@ namespace BLL.Converters
                 ContainerQuantity = entity.ContainerQuantity,
                 Cost = entity.Cost,
                 CountryDelivery = entity.CountryDelivery,
-                CountryDepature = entity.CountryDepature,
-                Customer = entity.Customer,
+                CountryDeparture = entity.CountryDeparture,
+                CustomerName = entity.CustomerName,
                 FinishedDate = entity.FinishedDate,
                 HandlingDetail = entity.HandlingDetail
             };

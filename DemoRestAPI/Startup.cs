@@ -70,7 +70,7 @@ namespace RestAPI
             services.AddDbContext<ShipmentContext>(options => options.UseSqlServer(connectionString));
             */
             services.AddMvc();
-            
+
             services.AddSingleton(Configuration);
             services.AddScoped<IBLLFacade, BLLFacade>();
         }
@@ -91,9 +91,9 @@ namespace RestAPI
                 new BLL.BusinessObjects.ShipmentBO()
                 {
                     ShipmentName = "#7865",
-                    Customer = "CustomerOne",
+                    CustomerName = "CustomerOne",
                     CargoInfo = "CargoInformation",
-                    CountryDepature = "Greenland",
+                    CountryDeparture = "Greenland",
                     CountryDelivery = "Germany",
                     ContainerQuantity = 342,
                     HandlingDetail = "Details",
@@ -105,9 +105,9 @@ namespace RestAPI
                 new BLL.BusinessObjects.ShipmentBO()
                 {
                     ShipmentName = "#6523",
-                    Customer = "CustomerTwo",
+                    CustomerName = "CustomerTwo",
                     CargoInfo = "CargoInformation",
-                    CountryDepature = "Greenland",
+                    CountryDeparture = "Greenland",
                     CountryDelivery = "Germany",
                     ContainerQuantity = 543,
                     HandlingDetail = "Details",
@@ -119,9 +119,9 @@ namespace RestAPI
                 new BLL.BusinessObjects.ShipmentBO()
                 {
                     ShipmentName = "#2865",
-                    Customer = "CustomerThree",
+                    CustomerName = "CustomerThree",
                     CargoInfo = "CargoInformation",
-                    CountryDepature = "Greenland",
+                    CountryDeparture = "Greenland",
                     CountryDelivery = "Germany",
                     ContainerQuantity = 3242,
                     HandlingDetail = "Details",
@@ -133,9 +133,9 @@ namespace RestAPI
                 new BLL.BusinessObjects.ShipmentBO()
                 {
                     ShipmentName = "#7800",
-                    Customer = "CustomerFour",
+                    CustomerName = "CustomerFour",
                     CargoInfo = "CargoInformation",
-                    CountryDepature = "Greenland",
+                    CountryDeparture = "Greenland",
                     CountryDelivery = "Germany",
                     ContainerQuantity = 42,
                     HandlingDetail = "Details",

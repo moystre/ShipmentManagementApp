@@ -8,9 +8,9 @@ namespace DAL.Entities
     {
         public int Id { get; set; }
         public string ShipmentName { get; set; }
-        public string Customer { get; set; }
+        public string CustomerName { get; set; }
         public string CargoInfo { get; set; }
-        public string CountryDepature { get; set; }
+        public string CountryDeparture { get; set; }
         public string CountryDelivery { get; set; }
         public int ContainerQuantity { get; set; }
         public string HandlingDetail { get; set; }
