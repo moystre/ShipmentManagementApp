@@ -66,11 +66,10 @@ namespace RestAPI
             }));
             /*
             var connectionString = @"Server=tcp:shipmentmanagement-server.database.windows.net,1433;Initial Catalog=ShipmentManagementDB;Persist Security Info=False;User ID=shipmentmanagementlogin;Password=MakeThisWork!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            DbInitializer.Initialize(new ShipmentContext());
             services.AddDbContext<ShipmentContext>(options => options.UseSqlServer(connectionString));
             */
             services.AddMvc();
-
+            DbInitializer.Initialize(new ShipmentContext());
             services.AddSingleton(Configuration);
             services.AddScoped<IBLLFacade, BLLFacade>();
         }
