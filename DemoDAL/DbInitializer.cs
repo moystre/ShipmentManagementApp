@@ -56,14 +56,12 @@ namespace DAL
                 new User {
                     Username = "UserJoe",
                     PasswordHash = passwordHashJoe,
-                    PasswordSalt = passwordSaltJoe,
-                    IsAdmin = false
+                    PasswordSalt = passwordSaltJoe
                 },
                 new User {
                     Username = "AdminAnn",
                     PasswordHash = passwordHashAnn,
-                    PasswordSalt = passwordSaltAnn,
-                    IsAdmin = true
+                    PasswordSalt = passwordSaltAnn
                 }
             };
 

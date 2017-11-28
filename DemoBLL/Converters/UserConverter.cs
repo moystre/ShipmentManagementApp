@@ -16,7 +16,6 @@ namespace BLL.Converters
             {
                 Id = businessObject.Id,
                 Username = businessObject.Username,
-                IsAdmin = businessObject.IsAdmin,
                 PasswordHash = businessObject.PasswordHash,
                 PasswordSalt = businessObject.PasswordSalt
             };
@@ -29,7 +28,6 @@ namespace BLL.Converters
             {
                 Id = entity.Id,
                 Username = entity.Username,
-                IsAdmin = entity.IsAdmin,
                 PasswordHash = entity.PasswordHash,
                 PasswordSalt = entity.PasswordSalt
             };

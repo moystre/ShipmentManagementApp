@@ -31,7 +31,6 @@ namespace Tests
             {
                 Id = 1,
                 Username = "John",
-                IsAdmin = false,
                 PasswordHash = passwordHash1,
                 PasswordSalt = passwordSalt1
             };
@@ -40,7 +39,6 @@ namespace Tests
             {
                 Id = 1,
                 Username = "John",
-                IsAdmin = false,
                 PasswordHash = passwordHash1,
                 PasswordSalt = passwordSalt1
             };
@@ -49,7 +47,6 @@ namespace Tests
             var expected = user;
             Assert.AreEqual(result.Username, expected.Username);
             Assert.AreEqual(result.Id, expected.Id);
-            Assert.AreEqual(result.IsAdmin, expected.IsAdmin);
             Assert.AreEqual(result.PasswordHash, expected.PasswordHash);
             Assert.AreEqual(result.PasswordSalt, expected.PasswordSalt);
         }

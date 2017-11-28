@@ -75,9 +75,6 @@ namespace RestAPI.Controllers
                 new Claim(ClaimTypes.Name, user.Username)
             };
 
-            if (user.IsAdmin)
-                claims.Add(new Claim(ClaimTypes.Role, "Administrator"));
-
             var token = new JwtSecurityToken(
                 new JwtHeader(new SigningCredentials(
                     JwtSecurityKey.Key,

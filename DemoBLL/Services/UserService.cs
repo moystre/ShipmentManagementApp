@@ -70,7 +70,6 @@ namespace BLL.Services
                 userFromDb.Username = userUpdated.Username;
                 userFromDb.PasswordHash = userUpdated.PasswordHash;
                 userFromDb.PasswordSalt = userUpdated.PasswordSalt;
-                userFromDb.IsAdmin = userUpdated.IsAdmin;
 
                 uow.Complete();
                 return conv.Convert(userFromDb);
