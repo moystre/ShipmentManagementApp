@@ -87,6 +87,38 @@ namespace RestAPI
 
                 var facade = new BLLFacade(Configuration);
 
+                var customer1 = facade.CustomerService.Create(
+                new BLL.BusinessObjects.CustomerBO()
+                {
+                    Name = "Jeff Jiff",
+                    Address = "Downing Street 817 68-211 Las Potatos",
+                    ContactPerson = "Contact Persona",
+                    Email = "emam32a@asre.com",
+                    PhoneNumber = "+34 42342123",
+                    WarehouseAddress = "WarHome C554 65234 Fizzo"
+                });
+                var customer2 = facade.CustomerService.Create(
+                new BLL.BusinessObjects.CustomerBO()
+                {
+                    Name = "Dominika Deraosasa",
+                    Address = "Downing Street 817 68-211 Las Potatos",
+                    ContactPerson = "Contact Persona",
+                    Email = "231ama@asre.com",
+                    PhoneNumber = "+22 42342123",
+                    WarehouseAddress = "WarHome C44 65234 Fizzo"
+                });
+                var customer3 = facade.CustomerService.Create(
+                new BLL.BusinessObjects.CustomerBO()
+                {
+                    Name = "Tarta de Nassad",
+                    Address = "Gulerooods Street 817 68-211 Las Potatos",
+                    ContactPerson = "Contact Persona",
+                    Email = "dddeef@asre.com",
+                    PhoneNumber = "+34 4232341123",
+                    WarehouseAddress = "WarHome C52 65234 Fizzo"
+                });
+
+
                 var shipment1 = facade.ShipmentService.Create(
                 new BLL.BusinessObjects.ShipmentBO()
                 {
