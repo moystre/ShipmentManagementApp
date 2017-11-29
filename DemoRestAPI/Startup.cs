@@ -86,7 +86,8 @@ namespace RestAPI
                 app.UseDeveloperExceptionPage();
 
                 var facade = new BLLFacade(Configuration);
-                var product1 = facade.ShipmentService.Create(
+
+                var shipment1 = facade.ShipmentService.Create(
                 new BLL.BusinessObjects.ShipmentBO()
                 {
                     ShipmentName = "#7865",
@@ -100,7 +101,7 @@ namespace RestAPI
                     Bill = 45675,
                     Cost = 999
                 });
-                var product2 = facade.ShipmentService.Create(
+                var shipment2 = facade.ShipmentService.Create(
                 new BLL.BusinessObjects.ShipmentBO()
                 {
                     ShipmentName = "#6523",
@@ -114,7 +115,7 @@ namespace RestAPI
                     Bill = 2375,
                     Cost = 995
                 });
-                var product3 = facade.ShipmentService.Create(
+                var shipment3 = facade.ShipmentService.Create(
                 new BLL.BusinessObjects.ShipmentBO()
                 {
                     ShipmentName = "#2865",
@@ -128,7 +129,7 @@ namespace RestAPI
                     Bill = 42315,
                     Cost = 992
                 });
-                var product4 = facade.ShipmentService.Create(
+                var shipment4 = facade.ShipmentService.Create(
                 new BLL.BusinessObjects.ShipmentBO()
                 {
                     ShipmentName = "#7800",
@@ -142,12 +143,10 @@ namespace RestAPI
                     Bill = 55675,
                     Cost = 933
                 });
-
             }
             app.UseMvc();
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
-
         }
     }
 }

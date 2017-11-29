@@ -6,6 +6,7 @@ namespace BLL
     public interface IBLLFacade
     {
         IService<ShipmentBO> ShipmentService { get; }
+        IService<CustomerBO> CustomerService { get; }
         IService<UserBO> UserService { get; }
     }
 }

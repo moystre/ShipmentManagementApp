@@ -10,6 +10,7 @@ namespace DAL.UOW
     {
         public IRepository<User> UserRepository { get; internal set; }
         public IRepository<Shipment> ShipmentRepository { get; internal set; }
+        public IRepository<Customer> CustomerRepository { get; internal set; }
         private ShipmentContext _context;
         private static DbContextOptions<ShipmentContext> optionsStatic;
            
@@ -30,6 +31,7 @@ namespace DAL.UOW
 
             UserRepository = new UserRepository(_context);
             ShipmentRepository = new ShipmentRepository(_context);
+            CustomerRepository = new CustomerRepository(_context);
         }
 
         public int Complete()
