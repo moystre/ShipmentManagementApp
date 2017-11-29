@@ -1,4 +1,5 @@
 ﻿using BLL;
+using BLL.BusinessObjects;
 using DAL;
 using DAL.Context;
 using DAL.Entities;
@@ -75,7 +76,7 @@ namespace RestAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IBLLFacade facade, IConfiguration config)
         {
 
             if (env.IsDevelopment())
@@ -85,10 +86,10 @@ namespace RestAPI
                 loggerFactory.AddDebug();
                 app.UseDeveloperExceptionPage();
 
-                var facade = new BLLFacade(Configuration);
+                
 
-                var customer1 = facade.CustomerService.Create(
-                new BLL.BusinessObjects.CustomerBO()
+                facade.CustomerService.Create(
+                new CustomerBO()
                 {
                     Name = "Jeff Jiff",
                     Address = "Downing Street 817 68-211 Las Potatos",
@@ -97,8 +98,8 @@ namespace RestAPI
                     PhoneNumber = "+34 42342123",
                     WarehouseAddress = "WarHome C554 65234 Fizzo"
                 });
-                var customer2 = facade.CustomerService.Create(
-                new BLL.BusinessObjects.CustomerBO()
+                facade.CustomerService.Create(
+                new CustomerBO()
                 {
                     Name = "Dominika Deraosasa",
                     Address = "Downing Street 817 68-211 Las Potatos",
@@ -107,8 +108,8 @@ namespace RestAPI
                     PhoneNumber = "+22 42342123",
                     WarehouseAddress = "WarHome C44 65234 Fizzo"
                 });
-                var customer3 = facade.CustomerService.Create(
-                new BLL.BusinessObjects.CustomerBO()
+                facade.CustomerService.Create(
+                new CustomerBO()
                 {
                     Name = "Tarta de Nassad",
                     Address = "Gulerooods Street 817 68-211 Las Potatos",
@@ -119,8 +120,8 @@ namespace RestAPI
                 });
 
 
-                var shipment1 = facade.ShipmentService.Create(
-                new BLL.BusinessObjects.ShipmentBO()
+                facade.ShipmentService.Create(
+                new ShipmentBO()
                 {
                     ShipmentName = "#7865",
                     CustomerName = "CustomerOne",
@@ -133,8 +134,8 @@ namespace RestAPI
                     Bill = 45675,
                     Cost = 999
                 });
-                var shipment2 = facade.ShipmentService.Create(
-                new BLL.BusinessObjects.ShipmentBO()
+                facade.ShipmentService.Create(
+                new ShipmentBO()
                 {
                     ShipmentName = "#6523",
                     CustomerName = "CustomerTwo",
@@ -147,8 +148,8 @@ namespace RestAPI
                     Bill = 2375,
                     Cost = 995
                 });
-                var shipment3 = facade.ShipmentService.Create(
-                new BLL.BusinessObjects.ShipmentBO()
+                facade.ShipmentService.Create(
+                new ShipmentBO()
                 {
                     ShipmentName = "#2865",
                     CustomerName = "CustomerThree",
@@ -161,8 +162,8 @@ namespace RestAPI
                     Bill = 42315,
                     Cost = 992
                 });
-                var shipment4 = facade.ShipmentService.Create(
-                new BLL.BusinessObjects.ShipmentBO()
+                facade.ShipmentService.Create(
+                new ShipmentBO()
                 {
                     ShipmentName = "#7800",
                     CustomerName = "CustomerFour",

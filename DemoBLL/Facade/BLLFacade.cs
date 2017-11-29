@@ -12,10 +12,8 @@ namespace DemoBLL.Facade
     {
         private DALFacade facade;
         
-
-        public BLLFacade(IConfiguration conf){
-            Console.WriteLine("shipmentConnection: " + conf.GetConnectionString("ShipmentConnection"));
-            Console.WriteLine("environmentConnection: " + Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"));
+        public BLLFacade(IConfiguration conf)
+        {
             facade = new DALFacade(new DbOptions()
             {
                 ConnectionString = conf.GetConnectionString("ShipmentConnection"),
