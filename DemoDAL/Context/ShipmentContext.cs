@@ -31,9 +31,14 @@ namespace DAL.Context
             modelBuilder.Entity<Customer>()
                 .HasMany(c => c.Shipments)
                 .WithOne(s => s.Customer);
-            
+
             //TODO
             //Shipment - Container (One to Many)
+
+
+
+
+            base.OnModelCreating(modelBuilder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
