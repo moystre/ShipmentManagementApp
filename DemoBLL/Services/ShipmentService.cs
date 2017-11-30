@@ -63,7 +63,7 @@ namespace BLL.Services
                 var shipmentFromDb = uow.ShipmentRepository.Get(bo.Id);
                 if (shipmentFromDb == null)
                 {
-                    throw new InvalidOperationException("Customer not found");
+                    throw new InvalidOperationException("Shipment not found");
                 }
 
                 var shipmentUpdated = conv.Convert(bo);

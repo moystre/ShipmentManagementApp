@@ -8,5 +8,6 @@ namespace BLL
         IService<ShipmentBO> ShipmentService { get; }
         IService<CustomerBO> CustomerService { get; }
         IService<UserBO> UserService { get; }
+        IService<ContainerBO> ContainerService { get; }
     }
 }

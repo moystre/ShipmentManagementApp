@@ -176,6 +176,14 @@ namespace RestAPI
                     Bill = 55675,
                     Cost = 933
                 });
+                facade.ContainerService.Create(
+                new ContainerBO()
+                {
+                    ContainerNumber = "#2357",
+                    Dangerous = "No",
+                    Frozen = "No",
+                    Size = "235"
+                });
             }
             app.UseMvc();
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());

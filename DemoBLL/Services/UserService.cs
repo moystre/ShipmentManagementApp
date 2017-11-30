@@ -63,7 +63,7 @@ namespace BLL.Services
                 var userFromDb = uow.UserRepository.Get(bo.Id);
                 if (userFromDb == null)
                 {
-                    throw new InvalidOperationException("Customer not found");
+                    throw new InvalidOperationException("User not found");
                 }
 
                 var userUpdated = conv.Convert(bo);

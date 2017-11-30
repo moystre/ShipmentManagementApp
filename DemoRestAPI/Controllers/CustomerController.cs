@@ -14,52 +14,52 @@ namespace RestAPI.Controllers
 {
     [EnableCors("MyPolicy")]
     [Produces("application/json")]
-    [Route("api/Shipments")]
-    public class ShipmentController : Controller
+    [Route("api/Customers")]
+    public class CustomerController : Controller
     {
         IBLLFacade bllFacade;
-        public ShipmentController(IBLLFacade facade) {
+        public CustomerController(IBLLFacade facade) {
             this.bllFacade = facade;
         }
 
-        // GET: api/Shipment
+        // GET: api/Customer
         [HttpGet]
-        public IEnumerable<ShipmentBO> Get()
+        public IEnumerable<CustomerBO> Get()
         {
-            return bllFacade.ShipmentService.GetAll();
+            return bllFacade.CustomerService.GetAll();
         }
 
-        // GET: api/Shipment/5
+        // GET: api/Customer/5
         [HttpGet("{id}")]
-        public ShipmentBO Get(int id)
+        public CustomerBO Get(int id)
         {
-            return bllFacade.ShipmentService.Get(id);
+            return bllFacade.CustomerService.Get(id);
         }
         
-        // POST: api/Shipment
+        // POST: api/Customer
         [HttpPost]
-        public IActionResult Post([FromBody]ShipmentBO shipment)
+        public IActionResult Post([FromBody]CustomerBO customer)
         {
             if (!ModelState.IsValid)
             {
                 return StatusCode(406, ModelState);
             }
-            return Ok(bllFacade.ShipmentService.Create(shipment));
+            return Ok(bllFacade.CustomerService.Create(customer));
         }
         
-        // PUT: api/Shipment/5
+        // PUT: api/Customer/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]ShipmentBO shipment)
+        public IActionResult Put(int id, [FromBody]CustomerBO customer)
         {
-            if (id != shipment.Id)
+            if (id != customer.Id)
             {
-                return StatusCode(405, "Path Id does not match Shipment Id.");
+                return StatusCode(405, "Path Id does not match Customer Id.");
             }
 
             try
             {
-                var _shipment = bllFacade.ShipmentService.Update(shipment);
-                return Ok(_shipment);
+                var _customer = bllFacade.CustomerService.Update(customer);
+                return Ok(_customer);
             }
             catch (InvalidOperationException e)
             {
@@ -73,8 +73,8 @@ namespace RestAPI.Controllers
         {
             try
             {
-                var shipment = bllFacade.ShipmentService.Delete(id);
-                return Ok(shipment);
+                var customer = bllFacade.CustomerService.Delete(id);
+                return Ok(customer);
             }
             catch (InvalidOperationException e)
             {

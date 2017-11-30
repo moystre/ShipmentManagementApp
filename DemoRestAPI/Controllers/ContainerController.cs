@@ -4,62 +4,61 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using DemoBLL.Facade;
-using Microsoft.Extensions.Configuration;
-using BLL.BusinessObjects;
 using Microsoft.AspNetCore.Cors;
+using BLL.BusinessObjects;
 using BLL;
 
 namespace RestAPI.Controllers
 {
     [EnableCors("MyPolicy")]
     [Produces("application/json")]
-    [Route("api/Customers")]
-    public class CustomerController : Controller
+    [Route("api/Container")]
+    public class ContainerController : Controller
     {
         IBLLFacade bllFacade;
-        public CustomerController(IBLLFacade facade) {
+        public ContainerController(IBLLFacade facade)
+        {
             this.bllFacade = facade;
         }
 
-        // GET: api/Customer
+        // GET: api/Container
         [HttpGet]
-        public IEnumerable<CustomerBO> Get()
+        public IEnumerable<ContainerBO> Get()
         {
-            return bllFacade.CustomerService.GetAll();
+            return bllFacade.ContainerService.GetAll();
         }
 
-        // GET: api/Customer/5
+        // GET: api/Container/5
         [HttpGet("{id}")]
-        public CustomerBO Get(int id)
+        public ContainerBO Get(int id)
         {
-            return bllFacade.CustomerService.Get(id);
+            return bllFacade.ContainerService.Get(id);
         }
         
-        // POST: api/Customer
+        // POST: api/Container
         [HttpPost]
-        public IActionResult Post([FromBody]CustomerBO customer)
+        public IActionResult Post([FromBody]ContainerBO container)
         {
             if (!ModelState.IsValid)
             {
                 return StatusCode(406, ModelState);
             }
-            return Ok(bllFacade.CustomerService.Create(customer));
+            return Ok(bllFacade.ContainerService.Create(container));
         }
         
-        // PUT: api/Customer/5
+        // PUT: api/Container/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]CustomerBO customer)
+        public IActionResult Put(int id, [FromBody]ContainerBO container)
         {
-            if (id != customer.Id)
+            if (id != container.Id)
             {
-                return StatusCode(405, "Path Id does not match Customer Id.");
+                return StatusCode(405, "Path Id does not match Container Id.");
             }
 
             try
             {
-                var _user = bllFacade.CustomerService.Update(customer);
-                return Ok(_user);
+                var _container = bllFacade.ContainerService.Update(container);
+                return Ok(_container);
             }
             catch (InvalidOperationException e)
             {
@@ -73,8 +72,8 @@ namespace RestAPI.Controllers
         {
             try
             {
-                var customer = bllFacade.CustomerService.Delete(id);
-                return Ok(customer);
+                var container = bllFacade.ContainerService.Delete(id);
+                return Ok(container);
             }
             catch (InvalidOperationException e)
             {

@@ -28,5 +28,6 @@ namespace DAL.Context
         public DbSet<User> Users { get; set; }
         public DbSet<Shipment> Shipments { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Container> Containers { get; set; }
     }
 }

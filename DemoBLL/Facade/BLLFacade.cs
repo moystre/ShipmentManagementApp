@@ -35,5 +35,10 @@ namespace DemoBLL.Facade
         {
             get { return new CustomerService(facade); }
         }
+
+        public IService<ContainerBO> ContainerService
+        {
+            get { return new ContainerService(facade); }
+        }
     }
 }

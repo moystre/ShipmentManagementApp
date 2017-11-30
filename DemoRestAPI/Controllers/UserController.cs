@@ -59,7 +59,7 @@ namespace RestAPI.Controllers
         {
             if (id != user.Id)
             {
-                return StatusCode(405, "Path Id does not match Customer Id.");
+                return StatusCode(405, "Path Id does not match User Id.");
             }
 
             try
