@@ -43,8 +43,9 @@ namespace BLL.Services
         {
             using (var uow = _facade.UnitOfWork)
             {
-                var shipment = conv.Convert(uow.ShipmentRepository.Get(Id));
-                return shipment;
+                var shipment = uow.ShipmentRepository.Get(Id);
+                shipment.Customer = uow.CustomerRepository.Get(shipment.CustomerId);
+                return conv.Convert(shipment);
             }
         }
 
@@ -76,6 +77,7 @@ namespace BLL.Services
                 shipmentFromDb.CustomerName = shipmentUpdated.CustomerName;
                 shipmentFromDb.FinishedDate = shipmentUpdated.FinishedDate;
                 shipmentFromDb.HandlingDetail = shipmentUpdated.HandlingDetail;
+                shipmentFromDb.Customer = uow.CustomerRepository.Get(shipmentFromDb.CustomerId);
 
                 uow.Complete();
                 return conv.Convert(shipmentFromDb);

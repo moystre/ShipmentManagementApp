@@ -17,5 +17,7 @@ namespace DAL.Entities
         public string FinishedDate { get; set; }
         public double Bill { get; set; }
         public double Cost { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
     }
 }

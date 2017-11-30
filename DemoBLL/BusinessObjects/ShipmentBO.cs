@@ -18,5 +18,7 @@ namespace BLL.BusinessObjects
         public string FinishedDate { get; set; }
         public double Bill { get; set; }
         public double Cost { get; set; }
+        public int CustomerId { get; set; }
+        public CustomerBO Customer { get; set; }
     }
 }

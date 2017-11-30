@@ -21,7 +21,19 @@ namespace DAL.Context
             modelBuilder.Entity<User>().HasKey(o => new { o.Id });
 
             //Relations
+            //Shipment - Customer (Many to One)
+
+            modelBuilder.Entity<Shipment>()
+                .HasOne(s => s.Customer)
+                .WithMany(c => c.Shipments)
+                .HasForeignKey(s => s.CustomerId);
+
+            modelBuilder.Entity<Customer>()
+                .HasMany(c => c.Shipments)
+                .WithOne(s => s.Customer);
+            
             //TODO
+            //Shipment - Container (One to Many)
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

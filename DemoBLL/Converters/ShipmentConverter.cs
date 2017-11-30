@@ -24,7 +24,8 @@ namespace BLL.Converters
                 CountryDeparture = businessObject.CountryDeparture,
                 CustomerName = businessObject.CustomerName,
                 FinishedDate = businessObject.FinishedDate,
-                HandlingDetail = businessObject.HandlingDetail
+                HandlingDetail = businessObject.HandlingDetail,
+                CustomerId = businessObject.CustomerId
             };
         }
 
@@ -43,7 +44,8 @@ namespace BLL.Converters
                 CountryDeparture = entity.CountryDeparture,
                 CustomerName = entity.CustomerName,
                 FinishedDate = entity.FinishedDate,
-                HandlingDetail = entity.HandlingDetail
+                HandlingDetail = entity.HandlingDetail,
+                CustomerId = entity.CustomerId
             };
         }
     }
