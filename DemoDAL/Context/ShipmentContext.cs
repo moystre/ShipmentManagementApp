@@ -14,7 +14,14 @@ namespace DAL.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            //Primary Keys
+            modelBuilder.Entity<Shipment>().HasKey(s => new { s.Id });
+            modelBuilder.Entity<Customer>().HasKey(c => new { c.Id });
+            modelBuilder.Entity<Container>().HasKey(co => new { co.Id });
+            modelBuilder.Entity<User>().HasKey(o => new { o.Id });
+
+            //Relations
+            //TODO
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
