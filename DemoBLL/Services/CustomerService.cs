@@ -70,7 +70,7 @@ namespace BLL.Services
                 customerFromDb.Address = customerUpdated.Address;
                 customerFromDb.ContactPerson = customerUpdated.ContactPerson;
                 customerFromDb.Email = customerUpdated.Email;
-                customerFromDb.Name = customerUpdated.Name;
+                customerFromDb.CustomerName = customerUpdated.CustomerName;
                 customerFromDb.PhoneNumber = customerUpdated.PhoneNumber;
                 customerFromDb.WarehouseAddress = customerUpdated.WarehouseAddress;
 

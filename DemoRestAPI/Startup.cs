@@ -91,7 +91,7 @@ namespace RestAPI
                 facade.CustomerService.Create(
                 new CustomerBO()
                 {
-                    Name = "Jeff Jiff",
+                    CustomerName = "Jeff Jiff",
                     Address = "Downing Street 817 68-211 Las Potatos",
                     ContactPerson = "Contact Persona",
                     Email = "emam32a@asre.com",
@@ -101,7 +101,7 @@ namespace RestAPI
                 facade.CustomerService.Create(
                 new CustomerBO()
                 {
-                    Name = "Dominika Deraosasa",
+                    CustomerName = "Dominika Deraosasa",
                     Address = "Downing Street 817 68-211 Las Potatos",
                     ContactPerson = "Contact Persona",
                     Email = "231ama@asre.com",
@@ -111,7 +111,7 @@ namespace RestAPI
                 facade.CustomerService.Create(
                 new CustomerBO()
                 {
-                    Name = "Tarta de Nassad",
+                    CustomerName = "Tarta de Nassad",
                     Address = "Gulerooods Street 817 68-211 Las Potatos",
                     ContactPerson = "Contact Persona",
                     Email = "dddeef@asre.com",

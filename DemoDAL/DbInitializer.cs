@@ -42,7 +42,7 @@ namespace DAL
 
             //List<TodoItem> items = new List<TodoItem>
             //{
-            //    new TodoItem { IsComplete=true, Name="Deploy TodoApi"}
+            //    new TodoItem { IsComplete=true, CustomerName="Deploy TodoApi"}
             //};
 
             // Create two users with hashed and salted passwords

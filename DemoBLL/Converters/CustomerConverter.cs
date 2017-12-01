@@ -18,7 +18,7 @@ namespace BLL.Converters
                 Address = businessObject.Address,
                 ContactPerson = businessObject.ContactPerson,
                 Email = businessObject.Email,
-                Name = businessObject.Name,
+                CustomerName = businessObject.CustomerName,
                 PhoneNumber = businessObject.PhoneNumber,
                 WarehouseAddress = businessObject.WarehouseAddress
             };
@@ -33,7 +33,7 @@ namespace BLL.Converters
                 Address = entity.Address,
                 ContactPerson = entity.ContactPerson,
                 Email = entity.Email,
-                Name = entity.Name,
+                CustomerName = entity.CustomerName,
                 PhoneNumber = entity.PhoneNumber,
                 WarehouseAddress = entity.WarehouseAddress
             };
