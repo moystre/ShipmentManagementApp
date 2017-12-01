@@ -9,9 +9,11 @@ using DemoBLL.Facade;
 using BLL.BusinessObjects;
 using Microsoft.AspNetCore.Authorization;
 using BLL;
+using Microsoft.AspNetCore.Cors;
 
 namespace RestAPI.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Produces("application/json")]
     [Route("api/Users")]
     public class UserController : Controller
