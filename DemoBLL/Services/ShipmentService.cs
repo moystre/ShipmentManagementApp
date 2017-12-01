@@ -74,7 +74,6 @@ namespace BLL.Services
                 shipmentFromDb.Cost = shipmentUpdated.Cost;
                 shipmentFromDb.CountryDelivery = shipmentUpdated.CountryDelivery;
                 shipmentFromDb.CountryDeparture = shipmentUpdated.CountryDeparture;
-                shipmentFromDb.CustomerName = shipmentUpdated.CustomerName;
                 shipmentFromDb.FinishedDate = shipmentUpdated.FinishedDate;
                 shipmentFromDb.HandlingDetail = shipmentUpdated.HandlingDetail;
                 shipmentFromDb.Customer = uow.CustomerRepository.Get(shipmentFromDb.CustomerId);

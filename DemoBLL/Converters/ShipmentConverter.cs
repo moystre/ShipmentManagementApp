@@ -22,7 +22,6 @@ namespace BLL.Converters
                 Cost = businessObject.Cost,
                 CountryDelivery = businessObject.CountryDelivery,
                 CountryDeparture = businessObject.CountryDeparture,
-                CustomerName = businessObject.CustomerName,
                 FinishedDate = businessObject.FinishedDate,
                 HandlingDetail = businessObject.HandlingDetail,
                 CustomerId = businessObject.CustomerId
@@ -42,9 +41,9 @@ namespace BLL.Converters
                 Cost = entity.Cost,
                 CountryDelivery = entity.CountryDelivery,
                 CountryDeparture = entity.CountryDeparture,
-                CustomerName = entity.CustomerName,
                 FinishedDate = entity.FinishedDate,
                 HandlingDetail = entity.HandlingDetail,
+                Customer = new CustomerConverter().Convert(entity.Customer),
                 CustomerId = entity.CustomerId
             };
         }

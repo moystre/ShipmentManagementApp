@@ -13,7 +13,7 @@ using BLL;
 namespace RestAPI.Controllers
 {
     [Produces("application/json")]
-    [Route("api/User")]
+    [Route("api/Users")]
     public class UserController : Controller
     {
 

@@ -124,7 +124,6 @@ namespace RestAPI
                 new ShipmentBO()
                 {
                     ShipmentName = "#7865",
-                    CustomerName = "CustomerOne",
                     CargoInfo = "CargoInformation",
                     CountryDeparture = "Greenland",
                     CountryDelivery = "Germany",
@@ -132,13 +131,13 @@ namespace RestAPI
                     HandlingDetail = "Details",
                     FinishedDate = "Not finished",
                     Bill = 45675,
-                    Cost = 999
+                    Cost = 999,
+                    CustomerId = 2
                 });
                 facade.ShipmentService.Create(
                 new ShipmentBO()
                 {
                     ShipmentName = "#6523",
-                    CustomerName = "CustomerTwo",
                     CargoInfo = "CargoInformation",
                     CountryDeparture = "Greenland",
                     CountryDelivery = "Germany",
@@ -146,13 +145,13 @@ namespace RestAPI
                     HandlingDetail = "Details",
                     FinishedDate = "Not finished",
                     Bill = 2375,
-                    Cost = 995
+                    Cost = 995,
+                    CustomerId = 1
                 });
                 facade.ShipmentService.Create(
                 new ShipmentBO()
                 {
                     ShipmentName = "#2865",
-                    CustomerName = "CustomerThree",
                     CargoInfo = "CargoInformation",
                     CountryDeparture = "Greenland",
                     CountryDelivery = "Germany",
@@ -160,13 +159,13 @@ namespace RestAPI
                     HandlingDetail = "Details",
                     FinishedDate = "Not finished",
                     Bill = 42315,
-                    Cost = 992
+                    Cost = 992,
+                    CustomerId = 1
                 });
                 facade.ShipmentService.Create(
                 new ShipmentBO()
                 {
                     ShipmentName = "#7800",
-                    CustomerName = "CustomerFour",
                     CargoInfo = "CargoInformation",
                     CountryDeparture = "Greenland",
                     CountryDelivery = "Germany",
@@ -174,7 +173,8 @@ namespace RestAPI
                     HandlingDetail = "Details",
                     FinishedDate = "Not finished",
                     Bill = 55675,
-                    Cost = 933
+                    Cost = 933,
+                    CustomerId = 3
                 });
                 facade.ContainerService.Create(
                 new ContainerBO()
@@ -182,7 +182,26 @@ namespace RestAPI
                     ContainerNumber = "#2357",
                     Dangerous = "No",
                     Frozen = "No",
-                    Size = "235"
+                    Size = "235",
+                    ShipmentId = 1
+                });
+                facade.ContainerService.Create(
+                new ContainerBO()
+                {
+                    ContainerNumber = "#2357",
+                    Dangerous = "No",
+                    Frozen = "No",
+                    Size = "235",
+                    ShipmentId = 1
+                });
+                facade.ContainerService.Create(
+                new ContainerBO()
+                {
+                    ContainerNumber = "#2357",
+                    Dangerous = "No",
+                    Frozen = "No",
+                    Size = "235",
+                    ShipmentId = 1
                 });
             }
             app.UseMvc();

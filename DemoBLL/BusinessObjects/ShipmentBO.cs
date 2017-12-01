@@ -9,7 +9,6 @@ namespace BLL.BusinessObjects
     {
         public int Id { get; set; }
         public string ShipmentName { get; set; }
-        public string CustomerName { get; set; }
         public string CargoInfo { get; set; }
         public string CountryDeparture { get; set; }
         public string CountryDelivery { get; set; }

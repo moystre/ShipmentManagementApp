@@ -12,7 +12,7 @@ namespace RestAPI.Controllers
 {
     [EnableCors("MyPolicy")]
     [Produces("application/json")]
-    [Route("api/Container")]
+    [Route("api/Containers")]
     public class ContainerController : Controller
     {
         IBLLFacade bllFacade;

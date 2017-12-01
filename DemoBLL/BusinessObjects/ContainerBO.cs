@@ -12,5 +12,7 @@ namespace BLL.BusinessObjects
         public string Size { get; set; }
         public string Frozen { get; set; }
         public string Dangerous { get; set; }
+        public int ShipmentId { get; set; }
+        public ShipmentBO Shipment { get; set; }
     }
 }

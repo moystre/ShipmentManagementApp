@@ -32,9 +32,16 @@ namespace DAL.Context
                 .HasMany(c => c.Shipments)
                 .WithOne(s => s.Customer);
 
-            //TODO
             //Shipment - Container (One to Many)
 
+            modelBuilder.Entity<Container>()
+                .HasOne(co => co.Shipment)
+                .WithMany(s => s.Containers)
+                .HasForeignKey(co => co.ShipmentId);
+
+            modelBuilder.Entity<Shipment>()
+                .HasMany(s => s.Containers)
+                .WithOne(co => co.Shipment);
 
 
 

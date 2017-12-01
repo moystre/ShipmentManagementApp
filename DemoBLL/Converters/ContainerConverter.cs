@@ -18,7 +18,8 @@ namespace BLL.Converters
                 ContainerNumber = businessObject.ContainerNumber,
                 Dangerous = businessObject.Dangerous,
                 Frozen = businessObject.Frozen,
-                Size = businessObject.Size
+                Size = businessObject.Size,
+                ShipmentId = businessObject.ShipmentId
             };
         }
 
@@ -31,7 +32,9 @@ namespace BLL.Converters
                 ContainerNumber = entity.ContainerNumber,
                 Dangerous = entity.Dangerous,
                 Frozen = entity.Frozen,
-                Size = entity.Size
+                Size = entity.Size,
+                Shipment = new ShipmentConverter().Convert(entity.Shipment),
+                ShipmentId = entity.ShipmentId
             };
         }
     }

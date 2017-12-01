@@ -8,7 +8,6 @@ namespace DAL.Entities
     {
         public int Id { get; set; }
         public string ShipmentName { get; set; }
-        public string CustomerName { get; set; }
         public string CargoInfo { get; set; }
         public string CountryDeparture { get; set; }
         public string CountryDelivery { get; set; }
@@ -19,5 +18,6 @@ namespace DAL.Entities
         public double Cost { get; set; }
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
+        public List<Container> Containers { get; set; }
     }
 }
