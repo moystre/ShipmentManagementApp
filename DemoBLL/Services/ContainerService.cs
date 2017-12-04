@@ -44,7 +44,6 @@ namespace BLL.Services
             using (var uow = _facade.UnitOfWork)
             {
                 var container = uow.ContainerRepository.Get(Id);
-                container.Shipment = uow.ShipmentRepository.Get(container.ShipmentId);
                 return conv.Convert(container);
             }
         }
@@ -72,7 +71,6 @@ namespace BLL.Services
                 containerFromDb.Dangerous = containerUpdated.Dangerous;
                 containerFromDb.Frozen = containerUpdated.Frozen;
                 containerFromDb.Size = containerUpdated.Size;
-                containerFromDb.Shipment = uow.ShipmentRepository.Get(containerFromDb.ShipmentId);
 
                 uow.Complete();
                 return conv.Convert(containerFromDb);

@@ -20,7 +20,8 @@ namespace BLL.Converters
                 Email = businessObject.Email,
                 CustomerName = businessObject.CustomerName,
                 PhoneNumber = businessObject.PhoneNumber,
-                WarehouseAddress = businessObject.WarehouseAddress
+                WarehouseAddress = businessObject.WarehouseAddress,
+                ShipmentId = businessObject.ShipmentId
             };
         }
 
@@ -35,7 +36,8 @@ namespace BLL.Converters
                 Email = entity.Email,
                 CustomerName = entity.CustomerName,
                 PhoneNumber = entity.PhoneNumber,
-                WarehouseAddress = entity.WarehouseAddress
+                WarehouseAddress = entity.WarehouseAddress,
+                ShipmentId = entity.ShipmentId
             };
         }
     }

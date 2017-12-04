@@ -33,7 +33,6 @@ namespace BLL.Converters
                 Dangerous = entity.Dangerous,
                 Frozen = entity.Frozen,
                 Size = entity.Size,
-                Shipment = new ShipmentConverter().Convert(entity.Shipment),
                 ShipmentId = entity.ShipmentId
             };
         }

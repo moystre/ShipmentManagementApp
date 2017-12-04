@@ -14,5 +14,6 @@ namespace BLL.BusinessObjects
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string WarehouseAddress { get; set; }
+        public int ShipmentId { get; set; }
     }
 }

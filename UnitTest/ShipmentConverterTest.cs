@@ -25,7 +25,8 @@ namespace UnitTest
                 FinishedDate = "2017-12-12",
                 HandlingDetail = "Details",
                 ShipmentName = "#65521",
-                CustomerId = 1
+                CustomerId = 1,
+                ContainerId = 1
             };
 
             Shipment shipment = new Shipment()
@@ -40,7 +41,8 @@ namespace UnitTest
                 FinishedDate = "2017-12-12",
                 HandlingDetail = "Details",
                 ShipmentName = "#65521",
-                CustomerId = 1
+                CustomerId = 1,
+                ContainerId =1
             };
 
             var result = conv.Convert(shipmentBO);
@@ -52,6 +54,7 @@ namespace UnitTest
             Assert.AreEqual(result.ContainerQuantity, expected.ContainerQuantity);
             Assert.AreEqual(result.Cost, expected.Cost);
             Assert.AreEqual(result.CustomerId, expected.CustomerId);
+            Assert.AreEqual(result.ContainerId, expected.ContainerId);
             Assert.AreEqual(result.CountryDelivery, expected.CountryDelivery);
             Assert.AreEqual(result.CountryDeparture, expected.CountryDeparture);
             Assert.AreEqual(result.FinishedDate, expected.FinishedDate);

@@ -22,7 +22,8 @@ namespace UnitTest
                 ContainerNumber = "#2563",
                 Dangerous = "Yes",
                 Frozen = "No",
-                Size = "25"
+                Size = "25",
+                ShipmentId = 1
             };
 
             Container container = new Container()
@@ -31,7 +32,8 @@ namespace UnitTest
                 ContainerNumber = "#2563",
                 Dangerous = "Yes",
                 Frozen = "No",
-                Size = "25"
+                Size = "25",
+                ShipmentId = 1
             };
 
             var result = conv.Convert(containerBO);
@@ -42,6 +44,7 @@ namespace UnitTest
             Assert.AreEqual(result.Dangerous, expected.Dangerous);
             Assert.AreEqual(result.Frozen, expected.Frozen);
             Assert.AreEqual(result.Size, expected.Size);
+            Assert.AreEqual(result.ShipmentId, expected.ShipmentId);
         }
     }
 }

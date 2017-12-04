@@ -17,7 +17,6 @@ namespace DAL.Entities
         public double Bill { get; set; }
         public double Cost { get; set; }
         public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
-        public List<Container> Containers { get; set; }
+        public int ContainerId { get; set; }
     }
 }
