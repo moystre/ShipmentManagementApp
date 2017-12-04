@@ -70,7 +70,7 @@ namespace RestAPI
             services.AddDbContext<ShipmentContext>(options => options.UseSqlServer(connectionString));
             */
             services.AddMvc();
-            DbInitializer.Initialize(new ShipmentContext());
+            //DbInitializer.Initialize(new ShipmentContext());
             services.AddSingleton(Configuration);
             services.AddScoped<IBLLFacade, BLLFacade>();
         }
@@ -86,7 +86,7 @@ namespace RestAPI
                 loggerFactory.AddDebug();
                 app.UseDeveloperExceptionPage();
 
-                
+
 
                 facade.CustomerService.Create(
                 new CustomerBO()
