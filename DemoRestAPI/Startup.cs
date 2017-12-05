@@ -183,28 +183,28 @@ namespace RestAPI
                 facade.ContainerService.Create(
                 new ContainerBO()
                 {
-                    ContainerNumber = "#2357",
-                    Dangerous = "No",
-                    Frozen = "No",
-                    Size = "235",
+                    ContainerNumber = "#2386",
+                    Dangerous = "Yes",
+                    Frozen = "Yes",
+                    Size = "23 x 57 x 98",
                     ShipmentId = 1
                 });
                 facade.ContainerService.Create(
                 new ContainerBO()
                 {
-                    ContainerNumber = "#2357",
+                    ContainerNumber = "#7648",
                     Dangerous = "No",
                     Frozen = "No",
-                    Size = "235",
+                    Size = "25 x 3 x 5",
                     ShipmentId = 1
                 });
                 facade.ContainerService.Create(
                 new ContainerBO()
                 {
-                    ContainerNumber = "#2357",
+                    ContainerNumber = "#3132",
                     Dangerous = "No",
                     Frozen = "No",
-                    Size = "235",
+                    Size = "20 x 36 x 51",
                     ShipmentId = 1
                 });
             }
