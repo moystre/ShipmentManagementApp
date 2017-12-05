@@ -14,5 +14,6 @@ namespace DAL.Entities
         public string Email { get; set; }
         public string WarehouseAddress { get; set; }
         public int ShipmentId { get; set; }
+        public List<Shipment> Shipments { get; set; }
     }
 }

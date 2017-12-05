@@ -22,8 +22,9 @@ namespace DAL.Context
 
             //Relations
             //Shipment - Customer (Many to One)
-
-            //Shipment - Container (One to Many)
+            modelBuilder.Entity<Shipment>().HasOne(s => s.Customer).WithMany(c => c.Shipments).HasForeignKey(s => s.CustomerId);
+            //Shipment - Container (Many to One)
+            modelBuilder.Entity<Shipment>().HasMany(s => s.Containers).WithOne(co => co.Shipment).HasForeignKey(co => co.ShipmentId);
 
             base.OnModelCreating(modelBuilder);
         }

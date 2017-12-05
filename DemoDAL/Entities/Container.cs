@@ -12,5 +12,6 @@ namespace DAL.Entities
         public string Frozen { get; set; }
         public string Dangerous { get; set; }
         public int ShipmentId { get; set; }
+        public Shipment Shipment { get; set; }
     }
 }

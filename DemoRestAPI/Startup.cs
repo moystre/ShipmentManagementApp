@@ -132,7 +132,8 @@ namespace RestAPI
                     FinishedDate = "Not finished",
                     Bill = 45675,
                     Cost = 999,
-                    CustomerId = 2
+                    CustomerId = 2,
+                    ContainerId = 1
                 });
                 facade.ShipmentService.Create(
                 new ShipmentBO()
@@ -146,7 +147,8 @@ namespace RestAPI
                     FinishedDate = "Not finished",
                     Bill = 2375,
                     Cost = 995,
-                    CustomerId = 1
+                    CustomerId = 1,
+                    ContainerId = 1
                 });
                 facade.ShipmentService.Create(
                 new ShipmentBO()
@@ -160,7 +162,8 @@ namespace RestAPI
                     FinishedDate = "Not finished",
                     Bill = 42315,
                     Cost = 992,
-                    CustomerId = 1
+                    CustomerId = 1,
+                    ContainerId = 1
                 });
                 facade.ShipmentService.Create(
                 new ShipmentBO()
@@ -174,7 +177,8 @@ namespace RestAPI
                     FinishedDate = "Not finished",
                     Bill = 55675,
                     Cost = 933,
-                    CustomerId = 3
+                    CustomerId = 3,
+                    ContainerId = 1
                 });
                 facade.ContainerService.Create(
                 new ContainerBO()
