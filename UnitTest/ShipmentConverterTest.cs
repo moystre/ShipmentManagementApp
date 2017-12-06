@@ -9,7 +9,7 @@ namespace UnitTest
     public class ShipmentConverterTest
     {
         [Test]
-        public void TestTwo()
+        public void TestConvShipmentToEntity()
         {
             var conv = new ShipmentConverter();
 

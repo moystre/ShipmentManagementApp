@@ -9,7 +9,7 @@ namespace Tests
     public class UserConverterTest
     {
         [Test]
-        public void TestOne()
+        public void TestConvUserToEntity()
         {
             var conv = new UserConverter();
 

@@ -11,12 +11,13 @@ namespace BLL.Services
 {
     public class CustomerService : IService<CustomerBO>
     {
-        CustomerConverter conv = new CustomerConverter();
+        CustomerConverter conv = new CustomerConverter(); // Switch to ==> IConverter<Entity, BO> _conv = new IConverter<Entity, BO>();
         DALFacade _facade;
 
-        public CustomerService(DALFacade facade)
+        public CustomerService(DALFacade facade) // , IConverter<Entity, BO> conv = null
         {
             _facade = facade;
+            // _conv = conv ?? new SomeService();
         }
 
         public CustomerBO Create(CustomerBO bo)
