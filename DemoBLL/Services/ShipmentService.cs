@@ -67,6 +67,7 @@ namespace BLL.Services
                 }
 
                 var shipmentUpdated = conv.Convert(bo);
+                shipmentFromDb.ShipmentName = shipmentUpdated.ShipmentName;
                 shipmentFromDb.Bill = shipmentUpdated.Bill;
                 shipmentFromDb.CargoInfo = shipmentUpdated.CargoInfo;
                 shipmentFromDb.ContainerQuantity = shipmentUpdated.ContainerQuantity;
