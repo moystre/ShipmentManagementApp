@@ -207,10 +207,31 @@ namespace RestAPI
                     Size = "20 x 36 x 51",
                     ShipmentId = 1
                 });
+
+                string password = "1234";
+                byte[] passwordHashJoe, passwordSaltJoe;
+                CreatePasswordHash(password, out passwordHashJoe, out passwordSaltJoe);
+
+                facade.UserService.Create(
+                    new UserBO()
+                    {
+                        Username = "UserJoe",
+                        PasswordHash = passwordHashJoe,
+                        PasswordSalt = passwordSaltJoe
+                    });
             }
             app.UseMvc();
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
+        }
+
+        private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        {
+            using (var hmac = new System.Security.Cryptography.HMACSHA512())
+            {
+                passwordSalt = hmac.Key;
+                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            }
         }
     }
 }
