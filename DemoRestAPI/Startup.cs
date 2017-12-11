@@ -86,7 +86,10 @@ namespace RestAPI
                 loggerFactory.AddDebug();
                 app.UseDeveloperExceptionPage();
 
-
+                //facade.UserService.Create(new UserBO()
+                //{
+                //    Username = "UserJoe",
+                //});
 
                 facade.CustomerService.Create(
                 new CustomerBO()
@@ -183,7 +186,7 @@ namespace RestAPI
                 facade.ContainerService.Create(
                 new ContainerBO()
                 {
-                    ContainerNumber = "#2386",
+                    ContainerNumber = "#2386 ship 1",
                     Dangerous = "Yes",
                     Frozen = "Yes",
                     Size = "23 x 57 x 98",
@@ -192,20 +195,20 @@ namespace RestAPI
                 facade.ContainerService.Create(
                 new ContainerBO()
                 {
-                    ContainerNumber = "#7648",
+                    ContainerNumber = "#7648 ship 2",
                     Dangerous = "No",
                     Frozen = "No",
                     Size = "25 x 3 x 5",
-                    ShipmentId = 1
+                    ShipmentId = 2
                 });
                 facade.ContainerService.Create(
                 new ContainerBO()
                 {
-                    ContainerNumber = "#3132",
+                    ContainerNumber = "#3132 ship 3",
                     Dangerous = "No",
                     Frozen = "No",
                     Size = "20 x 36 x 51",
-                    ShipmentId = 1
+                    ShipmentId = 3
                 });
 
                 string password = "1234";

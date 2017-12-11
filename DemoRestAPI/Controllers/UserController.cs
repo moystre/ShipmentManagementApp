@@ -26,7 +26,7 @@ namespace RestAPI.Controllers
         }
 
         // GET: api/User
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public IEnumerable<UserBO> Get()
         {
