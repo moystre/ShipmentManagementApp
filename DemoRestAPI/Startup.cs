@@ -86,11 +86,6 @@ namespace RestAPI
                 loggerFactory.AddDebug();
                 app.UseDeveloperExceptionPage();
 
-                //facade.UserService.Create(new UserBO()
-                //{
-                //    Username = "UserJoe",
-                //});
-
                 facade.CustomerService.Create(
                 new CustomerBO()
                 {
