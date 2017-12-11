@@ -3,7 +3,7 @@ using BLL.Converters;
 using DAL.Entities;
 using NUnit.Framework;
 
-namespace BLLTest
+namespace BLLTest.Converters
 {
     [TestFixture]
     public class CustomerConverterTest
