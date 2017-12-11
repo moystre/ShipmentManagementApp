@@ -10,13 +10,15 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Cors;
 using BLL;
 using BLL.BusinessObjects;
+using System.Text;
+
 
 namespace RestAPI.Controllers
 {
     [EnableCors("MyPolicy")]
     [Produces("application/json")]
     [Route("api/Token")]
-    
+
     public class TokenController : Controller
     {
         private readonly IBLLFacade facade;
@@ -68,24 +70,23 @@ namespace RestAPI.Controllers
         }
 
         // This method generates and returns a JWT token for a user.
-        private string GenerateToken(UserBO user)
+        private IActionResult GenerateToken(UserBO user)
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.Username)
+                new Claim("role", user.Username),
+                new Claim(JwtRegisteredClaimNames.Nbf, new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds().ToString()),
+                new Claim(JwtRegisteredClaimNames.Exp, new DateTimeOffset(DateTime.Now.AddDays(1)).ToUnixTimeSeconds().ToString())
             };
 
             var token = new JwtSecurityToken(
                 new JwtHeader(new SigningCredentials(
-                    JwtSecurityKey.Key,
-                    SecurityAlgorithms.HmacSha256)),
-                new JwtPayload(null, // issuer - not needed (ValidateIssuer = false)
-                               null, // audience - not needed (ValidateAudience = false)
-                               claims.ToArray(),
-                               DateTime.Now,               // notBefore
-                               DateTime.Now.AddDays(1)));  // expires
+                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes("BOErgeOsTSpiser AErter 123 STK I ALT!")),
+                                             SecurityAlgorithms.HmacSha256)),
+                new JwtPayload(claims));
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+
         }
     }
 }
