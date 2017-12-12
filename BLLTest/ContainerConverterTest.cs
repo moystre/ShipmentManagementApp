@@ -2,11 +2,8 @@
 using BLL.Converters;
 using DAL.Entities;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace BLLTest.Converters
+namespace BLLTest
 {
     [TestFixture]
     class ContainerConverterTest
