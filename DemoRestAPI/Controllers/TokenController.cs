@@ -74,7 +74,7 @@ namespace RestAPI.Controllers
         {
             var claims = new List<Claim>
             {
-                new Claim("role", user.Username),
+                new Claim("username", user.Username),
                 new Claim(JwtRegisteredClaimNames.Nbf, new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds().ToString()),
                 new Claim(JwtRegisteredClaimNames.Exp, new DateTimeOffset(DateTime.Now.AddDays(1)).ToUnixTimeSeconds().ToString())
             };

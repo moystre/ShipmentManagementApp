@@ -12,6 +12,7 @@ namespace BLL.Services
     public class ShipmentService : IService<ShipmentBO>
     {
         ShipmentConverter conv = new ShipmentConverter();
+        CustomerConverter c = new CustomerConverter();
         DALFacade _facade;
 
         public ShipmentService(DALFacade facade)
@@ -44,7 +45,9 @@ namespace BLL.Services
             using (var uow = _facade.UnitOfWork)
             {
                 var shipment = uow.ShipmentRepository.Get(Id);
-                return conv.Convert(shipment);
+                var shipmentBO = conv.Convert(shipment);
+                shipmentBO.Customer = c.Convert(uow.CustomerRepository.Get(shipment.CustomerId));
+                return shipmentBO;
             }
         }
 
