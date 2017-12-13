@@ -3,6 +3,7 @@ using DAL.Entities;
 using DemoBLL.Converters;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BLL.Converters
@@ -24,8 +25,11 @@ namespace BLL.Converters
                 CountryDeparture = businessObject.CountryDeparture,
                 FinishedDate = businessObject.FinishedDate,
                 HandlingDetail = businessObject.HandlingDetail,
-                CustomerId = businessObject.CustomerId,
-                ContainerId = businessObject.ContainerId
+                Containers = businessObject.ContainerIds?.Select(coId => new Container()
+                {
+                    Id = coId
+                }).ToList(),
+                CustomerId = businessObject.CustomerId
             };
         }
 
@@ -45,7 +49,8 @@ namespace BLL.Converters
                 FinishedDate = entity.FinishedDate,
                 HandlingDetail = entity.HandlingDetail,
                 CustomerId = entity.CustomerId,
-                ContainerId = entity.ContainerId
+                Customer = new CustomerConverter().Convert(entity.Customer),
+                ContainerIds = entity.Containers?.Select(co => co.Id).ToList()
             };
         }
     }

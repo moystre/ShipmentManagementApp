@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using RestAPI.Helpers;
 using System;
+using System.Collections.Generic;
 
 namespace RestAPI
 {
@@ -116,6 +117,33 @@ namespace RestAPI
                     PhoneNumber = "+34 4232341123",
                     WarehouseAddress = "WarHome C52 65234 Fizzo"
                 });
+                var container1 = facade.ContainerService.Create(
+                new ContainerBO()
+                {
+                    ContainerNumber = "#2386 ship 1",
+                    Dangerous = "Yes",
+                    Frozen = "Yes",
+                    Size = "23 x 57 x 98",
+                    ShipmentId = 1
+                });
+                var container2 = facade.ContainerService.Create(
+                new ContainerBO()
+                {
+                    ContainerNumber = "#7648 ship 2",
+                    Dangerous = "No",
+                    Frozen = "No",
+                    Size = "25 x 3 x 5",
+                    ShipmentId = 1
+                });
+                var container3 = facade.ContainerService.Create(
+                new ContainerBO()
+                {
+                    ContainerNumber = "#3132 ship 3",
+                    Dangerous = "No",
+                    Frozen = "No",
+                    Size = "20 x 36 x 51",
+                    ShipmentId = 2
+                });
 
 
                 facade.ShipmentService.Create(
@@ -130,8 +158,7 @@ namespace RestAPI
                     FinishedDate = "Not finished",
                     Bill = 45675,
                     Cost = 999,
-                    CustomerId = 2,
-                    ContainerId = 1
+                    CustomerId = 2
                 });
                 facade.ShipmentService.Create(
                 new ShipmentBO()
@@ -145,8 +172,7 @@ namespace RestAPI
                     FinishedDate = "Not finished",
                     Bill = 2375,
                     Cost = 995,
-                    CustomerId = 1,
-                    ContainerId = 1
+                    CustomerId = 1
                 });
                 facade.ShipmentService.Create(
                 new ShipmentBO()
@@ -160,8 +186,7 @@ namespace RestAPI
                     FinishedDate = "Not finished",
                     Bill = 42315,
                     Cost = 992,
-                    CustomerId = 1,
-                    ContainerId = 1
+                    CustomerId = 1
                 });
                 facade.ShipmentService.Create(
                 new ShipmentBO()
@@ -175,36 +200,9 @@ namespace RestAPI
                     FinishedDate = "Not finished",
                     Bill = 55675,
                     Cost = 933,
-                    CustomerId = 3,
-                    ContainerId = 1
+                    CustomerId = 3
                 });
-                facade.ContainerService.Create(
-                new ContainerBO()
-                {
-                    ContainerNumber = "#2386 ship 1",
-                    Dangerous = "Yes",
-                    Frozen = "Yes",
-                    Size = "23 x 57 x 98",
-                    ShipmentId = 1
-                });
-                facade.ContainerService.Create(
-                new ContainerBO()
-                {
-                    ContainerNumber = "#7648 ship 2",
-                    Dangerous = "No",
-                    Frozen = "No",
-                    Size = "25 x 3 x 5",
-                    ShipmentId = 2
-                });
-                facade.ContainerService.Create(
-                new ContainerBO()
-                {
-                    ContainerNumber = "#3132 ship 3",
-                    Dangerous = "No",
-                    Frozen = "No",
-                    Size = "20 x 36 x 51",
-                    ShipmentId = 3
-                });
+                
 
                 string password = "1234";
                 byte[] passwordHashJoe, passwordSaltJoe;

@@ -13,6 +13,7 @@ namespace BLL.Services
     {
         ShipmentConverter conv = new ShipmentConverter();
         CustomerConverter c = new CustomerConverter();
+        ContainerConverter _convert = new ContainerConverter();
         DALFacade _facade;
 
         public ShipmentService(DALFacade facade)
@@ -44,10 +45,14 @@ namespace BLL.Services
         {
             using (var uow = _facade.UnitOfWork)
             {
-                var shipment = uow.ShipmentRepository.Get(Id);
-                var shipmentBO = conv.Convert(shipment);
-                shipmentBO.Customer = c.Convert(uow.CustomerRepository.Get(shipment.CustomerId));
-                return shipmentBO;
+                var shipment = conv.Convert(uow.ShipmentRepository.Get(Id));
+
+                shipment.Containers = uow.ContainerRepository.GetAll()
+                    .Select(co => _convert.Convert(co)).ToList();
+
+                shipment.Customer = c.Convert(uow.CustomerRepository.Get(shipment.CustomerId));
+
+                return shipment;
             }
         }
 
@@ -79,6 +84,8 @@ namespace BLL.Services
                 shipmentFromDb.CountryDeparture = shipmentUpdated.CountryDeparture;
                 shipmentFromDb.FinishedDate = shipmentUpdated.FinishedDate;
                 shipmentFromDb.HandlingDetail = shipmentUpdated.HandlingDetail;
+                shipmentFromDb.Containers = shipmentUpdated.Containers;
+                shipmentFromDb.CustomerId = shipmentUpdated.CustomerId;
 
                 uow.Complete();
                 return conv.Convert(shipmentFromDb);

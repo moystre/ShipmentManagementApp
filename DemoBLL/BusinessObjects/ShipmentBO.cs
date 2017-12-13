@@ -19,6 +19,7 @@ namespace BLL.BusinessObjects
         public double Cost { get; set; }
         public int CustomerId { get; set; }
         public CustomerBO Customer { get; set; }
-        public int ContainerId { get; set; }
+        public List<int> ContainerIds { get; set; }
+        public List<ContainerBO> Containers { get; set; }
     }
 }
