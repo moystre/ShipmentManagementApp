@@ -90,9 +90,9 @@ namespace RestAPI
                 facade.CustomerService.Create(
                 new CustomerBO()
                 {
-                    CustomerName = "Jeff Jiff",
+                    CustomerName = "First Customer",
                     Address = "Downing Street 817 68-211 Las Potatos",
-                    ContactPerson = "Contact Persona",
+                    ContactPerson = "First Customer Contact Person",
                     Email = "emam32a@asre.com",
                     PhoneNumber = "+34 42342123",
                     WarehouseAddress = "WarHome C554 65234 Fizzo"
@@ -100,9 +100,9 @@ namespace RestAPI
                 facade.CustomerService.Create(
                 new CustomerBO()
                 {
-                    CustomerName = "Dominika Deraosasa",
+                    CustomerName = "Second Customer",
                     Address = "Downing Street 817 68-211 Las Potatos",
-                    ContactPerson = "Contact Persona",
+                    ContactPerson = "Second Customer Contact Person",
                     Email = "231ama@asre.com",
                     PhoneNumber = "+22 42342123",
                     WarehouseAddress = "WarHome C44 65234 Fizzo"
@@ -110,9 +110,9 @@ namespace RestAPI
                 facade.CustomerService.Create(
                 new CustomerBO()
                 {
-                    CustomerName = "Tarta de Nassad",
+                    CustomerName = "Third Customer",
                     Address = "Gulerooods Street 817 68-211 Las Potatos",
-                    ContactPerson = "Contact Persona",
+                    ContactPerson = "Third Customer Contact Person",
                     Email = "dddeef@asre.com",
                     PhoneNumber = "+34 4232341123",
                     WarehouseAddress = "WarHome C52 65234 Fizzo"
@@ -149,7 +149,7 @@ namespace RestAPI
                 facade.ShipmentService.Create(
                 new ShipmentBO()
                 {
-                    ShipmentName = "#7865",
+                    ShipmentName = "#1111",
                     CargoInfo = "CargoInformation",
                     CountryDeparture = "Greenland",
                     CountryDelivery = "Germany",
@@ -158,12 +158,12 @@ namespace RestAPI
                     FinishedDate = "Not finished",
                     Bill = 45675,
                     Cost = 999,
-                    CustomerId = 2
+                    CustomerId = 1
                 });
                 facade.ShipmentService.Create(
                 new ShipmentBO()
                 {
-                    ShipmentName = "#6523",
+                    ShipmentName = "#2222",
                     CargoInfo = "CargoInformation",
                     CountryDeparture = "Greenland",
                     CountryDelivery = "Germany",
@@ -172,12 +172,12 @@ namespace RestAPI
                     FinishedDate = "Not finished",
                     Bill = 2375,
                     Cost = 995,
-                    CustomerId = 1
+                    CustomerId = 2
                 });
                 facade.ShipmentService.Create(
                 new ShipmentBO()
                 {
-                    ShipmentName = "#2865",
+                    ShipmentName = "#3333",
                     CargoInfo = "CargoInformation",
                     CountryDeparture = "Greenland",
                     CountryDelivery = "Germany",
@@ -186,12 +186,12 @@ namespace RestAPI
                     FinishedDate = "Not finished",
                     Bill = 42315,
                     Cost = 992,
-                    CustomerId = 1
+                    CustomerId = 3
                 });
                 facade.ShipmentService.Create(
                 new ShipmentBO()
                 {
-                    ShipmentName = "#7800",
+                    ShipmentName = "#4444",
                     CargoInfo = "CargoInformation",
                     CountryDeparture = "Greenland",
                     CountryDelivery = "Germany",
@@ -200,7 +200,7 @@ namespace RestAPI
                     FinishedDate = "Not finished",
                     Bill = 55675,
                     Cost = 933,
-                    CustomerId = 3
+                    CustomerId = 2
                 });
                 
 
