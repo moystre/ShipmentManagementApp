@@ -9,7 +9,7 @@ using System.Text;
 
 namespace BLL.Services
 {
-    public class ContainerService : IContainerService
+    public class ContainerService : IService<ContainerBO>
     {
         ContainerConverter conv = new ContainerConverter();
         DALFacade _facade;
@@ -53,20 +53,6 @@ namespace BLL.Services
             using (var uow = _facade.UnitOfWork)
             {
                 return uow.ContainerRepository.GetAll().Select(conv.Convert).ToList();
-            }
-        }
-
-        public IEnumerable<ContainerBO> GetAllByShipmentId(int t, int ps, int cp)
-        {
-            using (var uow = _facade.UnitOfWork)
-            {
-                var skip = (ps * cp) - ps;
-                return uow.ContainerRepository.GetAll()
-                    .Where(co => co.ShipmentId.Equals(t))
-                    .Skip(skip)
-                    .Take(ps)
-                    .Select(co => conv.Convert(co))
-                    .ToList();
             }
         }
 
