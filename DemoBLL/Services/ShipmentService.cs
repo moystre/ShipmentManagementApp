@@ -47,7 +47,7 @@ namespace BLL.Services
             {
                 var shipment = conv.Convert(uow.ShipmentRepository.Get(Id));
 
-                shipment.Containers = uow.ContainerRepository.GetAll()
+                shipment.Containers = uow.ContainerRepository.GetAll().Where(co => shipment.Id == co.ShipmentId)
                     .Select(co => _convert.Convert(co)).ToList();
 
                 shipment.Customer = c.Convert(uow.CustomerRepository.Get(shipment.CustomerId));
